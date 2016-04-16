@@ -1,0 +1,10 @@
+package lambdaCalculus;
+
+/**
+ * Created by Daniel Dao on 4/16/16.
+ */
+public class Runner {
+    public static void main(String[] args) {
+        System.out.println(new TermsConverter().deBruijnToStandardLambda(""));
+    }
+}
