@@ -1,6 +1,4 @@
 package lambdaCalculus;
-
-
 import lambdaCalculus.Tree.TreePrinter;
 
 /**
@@ -23,6 +21,5 @@ public class Runner {
         print(input1);
         print(input2);
         //print(input3);
-
     }
 }
