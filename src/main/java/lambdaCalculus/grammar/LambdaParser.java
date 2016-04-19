@@ -1,12 +1,15 @@
-// Generated from Lambda by ANTLR 4.5.3
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
+package lambdaCalculus.grammar;// Generated from Lambda by ANTLR 4.5.3
+
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class LambdaParser extends Parser {
@@ -92,11 +95,11 @@ public class LambdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_lambdaTerm; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).enterLambdaTerm(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).enterLambdaTerm(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).exitLambdaTerm(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).exitLambdaTerm(this);
 		}
 	}
 
@@ -163,11 +166,11 @@ public class LambdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).enterExpr(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).enterExpr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).exitExpr(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).exitExpr(this);
 		}
 	}
 
@@ -245,10 +248,10 @@ public class LambdaParser extends Parser {
 					setState(29); 
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(31);
 				expr(0);
-				setState(33); 
+				setState(33);
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -264,10 +267,10 @@ public class LambdaParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(35); 
+					setState(35);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				}
 				break;
 			}
@@ -275,7 +278,7 @@ public class LambdaParser extends Parser {
 			setState(48);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+			while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
@@ -285,7 +288,7 @@ public class LambdaParser extends Parser {
 					pushNewRecursionContext(_localctx, _startState, RULE_expr);
 					setState(39);
 					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(41); 
+					setState(41);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					do {
@@ -295,14 +298,14 @@ public class LambdaParser extends Parser {
 						match(SPACE);
 						}
 						}
-						setState(43); 
+						setState(43);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					} while ( _la==SPACE );
 					setState(45);
 					arg();
 					}
-					} 
+					}
 				}
 				setState(50);
 				_errHandler.sync(this);
@@ -329,11 +332,11 @@ public class LambdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_var; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).enterVar(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).enterVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).exitVar(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).exitVar(this);
 		}
 	}
 
@@ -373,11 +376,11 @@ public class LambdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_abst; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).enterAbst(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).enterAbst(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).exitAbst(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).exitAbst(this);
 		}
 	}
 
@@ -439,11 +442,11 @@ public class LambdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_func; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).enterFunc(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).enterFunc(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).exitFunc(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).exitFunc(this);
 		}
 	}
 
@@ -473,7 +476,7 @@ public class LambdaParser extends Parser {
 				break;
 			case LEFT_PAREN:
 				{
-				setState(61); 
+				setState(61);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
@@ -483,13 +486,13 @@ public class LambdaParser extends Parser {
 					match(LEFT_PAREN);
 					}
 					}
-					setState(63); 
+					setState(63);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==LEFT_PAREN );
 				setState(65);
 				abst();
-				setState(67); 
+				setState(67);
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -505,10 +508,10 @@ public class LambdaParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(69); 
+					setState(69);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				}
 				break;
 			default:
@@ -518,7 +521,7 @@ public class LambdaParser extends Parser {
 			setState(82);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+			while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
@@ -528,7 +531,7 @@ public class LambdaParser extends Parser {
 					pushNewRecursionContext(_localctx, _startState, RULE_func);
 					setState(73);
 					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(75); 
+					setState(75);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					do {
@@ -538,14 +541,14 @@ public class LambdaParser extends Parser {
 						match(SPACE);
 						}
 						}
-						setState(77); 
+						setState(77);
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					} while ( _la==SPACE );
 					setState(79);
 					arg();
 					}
-					} 
+					}
 				}
 				setState(84);
 				_errHandler.sync(this);
@@ -595,11 +598,11 @@ public class LambdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_arg; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).enterArg(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).enterArg(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LambdaListener ) ((LambdaListener)listener).exitArg(this);
+			if ( listener instanceof LambdaListener) ((LambdaListener)listener).exitArg(this);
 		}
 	}
 
@@ -633,7 +636,7 @@ public class LambdaParser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(91); 
+				setState(91);
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -649,13 +652,13 @@ public class LambdaParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(93); 
+					setState(93);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				setState(95);
 				func(0);
-				setState(97); 
+				setState(97);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
@@ -665,13 +668,13 @@ public class LambdaParser extends Parser {
 					match(SPACE);
 					}
 					}
-					setState(99); 
+					setState(99);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==SPACE );
 				setState(101);
 				arg();
-				setState(103); 
+				setState(103);
 				_errHandler.sync(this);
 				_alt = 1;
 				do {
@@ -687,10 +690,10 @@ public class LambdaParser extends Parser {
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(105); 
+					setState(105);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
-				} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
+				} while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER );
 				}
 				break;
 			}
