@@ -1,20 +1,16 @@
 package lambdaCalculus;
 
-import lambdaCalculus.Tree.Tree;
-
-import lambdaCalculus.Tree.TreePrinter;
-import lambdaCalculus.grammar.LambdaBaseListener;
-import lambdaCalculus.grammar.LambdaParser;
+import lambdaCalculus.grammar.standardLambda.LambdaBaseListener;
+import lambdaCalculus.grammar.standardLambda.LambdaParser;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by Daniel Dao on 4/15/16.
  */
-public class LambdaDef extends LambdaBaseListener {
+public class StandardLambda extends LambdaBaseListener {
 
     private final String lambda = "λ";
     private final String app = "@";
@@ -23,33 +19,12 @@ public class LambdaDef extends LambdaBaseListener {
     private List<Tree<String>> lambdaTreeList;
     private String lambdaTerm;
 
-    public LambdaDef() {
+    public StandardLambda() {
         lambdaTreeList = new ArrayList<Tree<String>>();
     }
 
     public void enterLambdaTerm(LambdaParser.LambdaTermContext ctx) {
 
-    }
-
-    public Tree<String> buildTree (List<Tree<String>> list) {
-        Tree<String> tree = null;
-        try {
-            if (list.size() == 1) {
-                tree = list.remove(0);
-            } else if (list.get(0).getData().equals(lambda)) {
-                tree = list.remove(0);
-                tree.setRight(buildTree(list));
-            } else if (list.get(0).getData().equals(app)) {
-                tree = list.remove(0);
-                tree.setRight(buildTree(list));
-                tree.setLeft(buildTree(list));
-            } else {
-                tree = list.remove(0);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return tree;
     }
 
     public void exitLambdaTerm(LambdaParser.LambdaTermContext ctx) {
@@ -59,7 +34,7 @@ public class LambdaDef extends LambdaBaseListener {
         Collections.reverse(lambdaTreeList);
 
         // build the tree based on the list
-        setLambdaTree(buildTree(lambdaTreeList));
+        setLambdaTree(Tree.buildTreeFromRight(lambdaTreeList));
     }
 
     public void enterExpr(LambdaParser.ExprContext ctx) {
@@ -102,7 +77,7 @@ public class LambdaDef extends LambdaBaseListener {
     }
 
     public void exitAbst(LambdaParser.AbstContext ctx) {
-        System.out.println("EXIT ABS: " + ctx.getText());
+//        System.out.println("EXIT ABS: " + ctx.getText());
         try {
             if (ctx.var() != null) {
 //                System.out.println("EXIT var " + ctx.var());
@@ -187,7 +162,7 @@ public class LambdaDef extends LambdaBaseListener {
     /*
      * Set the lambda tree
      */
-    private void setLambdaTree(Tree<String> lambdaTree) {
+    protected void setLambdaTree(Tree<String> lambdaTree) {
         this.lambdaTree = lambdaTree;
     }
 
@@ -201,99 +176,7 @@ public class LambdaDef extends LambdaBaseListener {
     /*
      * Set the lambda term
      */
-    private void setLambdaTerm(String lambdaTerm) {
+    protected void setLambdaTerm(String lambdaTerm) {
         this.lambdaTerm = lambdaTerm;
     }
-
-    private int findTermInParens(String term) {
-        int index = -1;
-        LinkedList<Character> list = new LinkedList<Character>();
-
-        try {
-            char[] charTerm = term.toCharArray();
-            for (int x=0; x < charTerm.length; x++) {
-                if (charTerm[x] == '(')
-                    list.add(charTerm[x]);
-                else if (charTerm[x] == ')')
-                    list.remove();
-                if (list.size() == 0)
-                    return x;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return index;
-    }
-
-    /*
-     * Convert the standard lambda term to a tree.
-     */
-//    private Tree<Character> toTree (String term) {
-//        Tree<Character> tree = null;
-//        try {
-//            char firstLetter = term.charAt(0);  // first letter of the term
-//
-//            if (firstLetter == '(') {   // if the first letter is "("
-//                int index = findTermInParens(term);
-//                if(index > 0) {
-//                    if (index == term.length()-1) {
-//                        term = term.substring(1, index);
-//                        tree = toTree(term);
-//                    } else {
-//                        Tree<Character> leftChild = toTree(term.substring(1, index));
-//                        term = term.substring(index + 1);
-//                        if (term.charAt(0) == ' ') {
-//                            term = term.substring(1);
-//                            tree = new Tree<Character>(app, leftChild, toTree(term));
-//                        }
-//                    }
-//                }
-//
-//            } else if (firstLetter == lambda) { // if the first letter is a λ
-//
-//                term = term.substring(1);
-//                int dot = term.indexOf('.');
-//                char var = term.charAt(0);
-//                term = term.substring(dot + 1);
-//                Tree<Character> leftChild = new Tree<Character>(var, null, null);
-//                tree = new Tree<Character>(lambda, leftChild, toTree(term));
-//
-//            } else if ((firstLetter >= 'a' && firstLetter <= 'z') || (firstLetter >= 'A' && firstLetter <= 'Z')) {
-//
-//                int whiteSpace = term.indexOf(' ');
-//                if (whiteSpace > 0) {
-//                    char var = term.charAt(0);
-//                    term = term.substring(whiteSpace + 1);
-//
-//                    Tree<Character> leftChild = new Tree<Character>(var, null, null);
-//                    tree = new Tree<Character>(app, leftChild, toTree(term));
-//                } else {
-//                    tree = new Tree<Character>(firstLetter, null, null);
-//                }
-//            }
-//
-//            //System.out.println("Term: " + term);
-//            //System.out.println("List: " + list);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return tree;
-//    }
-
-    /*
-     * Convert the input term to corresponding standard lambda term
-     */
-    public String lambdaConvert(String input) {
-        String term = "";
-
-        try {
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return term;
-    }
-
 }

@@ -1,24 +1,6 @@
 grammar Lambda ;
 
 lambdaTerm: expr (NEWLINE | EOF);
-//
-//expr: var                          #Variable
-//    | func                         #Function
-//    | app                          #Application
-//    | LEFT_PAREN expr RIGHT_PAREN  #ParenExpression
-//;
-//var: VAR
-//    | LEFT_PAREN VAR RIGHT_PAREN
-//;
-//func: LAMBDA VAR DOT expr
-//    | LEFT_PAREN func RIGHT_PAREN
-//;
-//app: app SPACE expr
-//   | func SPACE expr
-//   | app SPACE app
-//   | var SPACE var
-//;
-//
 
 expr: var
     | abst

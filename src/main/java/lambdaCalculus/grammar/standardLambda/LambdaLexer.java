@@ -1,4 +1,4 @@
-package lambdaCalculus.grammar;// Generated from Lambda by ANTLR 4.5.3
+package lambdaCalculus.grammar.standardLambda;// Generated from Lambda by ANTLR 4.5.3
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.ATN;
@@ -71,7 +71,7 @@ public class LambdaLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Lambda"; }
+	public String getGrammarFileName() { return "standardLambda/Lambda"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

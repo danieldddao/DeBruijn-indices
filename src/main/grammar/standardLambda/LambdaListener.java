@@ -1,4 +1,4 @@
-package lambdaCalculus.grammar;// Generated from Lambda by ANTLR 4.5.3
+package standardLambda;// Generated from Lambda by ANTLR 4.5.3
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
