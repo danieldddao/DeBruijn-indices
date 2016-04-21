@@ -2,6 +2,8 @@ package lambdaCalculus;
 
 import lambdaCalculus.grammar.deBruijnLambda.DeBruijnBaseListener;
 import lambdaCalculus.grammar.deBruijnLambda.DeBruijnParser;
+import lambdaCalculus.tree.Tree;
+import lambdaCalculus.tree.TreePrinter;
 
 import java.util.ArrayList;
 import java.util.Collections;

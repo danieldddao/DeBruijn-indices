@@ -3,6 +3,7 @@ import lambdaCalculus.grammar.deBruijnLambda.DeBruijnLexer;
 import lambdaCalculus.grammar.deBruijnLambda.DeBruijnParser;
 import lambdaCalculus.grammar.standardLambda.LambdaLexer;
 import lambdaCalculus.grammar.standardLambda.LambdaParser;
+import lambdaCalculus.tree.TreePrinter;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.*;

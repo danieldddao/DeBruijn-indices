@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06873b39-e648-41b0-be11-2ad07f32b593" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/deBruijn" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/Tree/Tree.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/Tree/TreePrinter.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/Tree.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/Tree.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/TreePrinter.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/TreePrinter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/DeBruijnLambda.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/DeBruijnLambda.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/StandardLambda.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/StandardLambda.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/TermRunner.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/TermRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/TermsConverter.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/TermsConverter.java" />
     </list>
     <ignored path="DeBruijn-indices.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/TermRunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
+              <caret line="78" column="40" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/TermsConverter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,7 +55,7 @@
         </entry>
       </file>
       <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/Tree.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -62,7 +65,7 @@
         </entry>
       </file>
       <file leaf-file-name="TreePrinter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/TreePrinter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/TreePrinter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7349666">
               <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
@@ -121,8 +124,8 @@
         <option value="$PROJECT_DIR$/src/main/java/lambdaCalculus/TermRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaCalculus/TermsConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/Tree.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/TreePrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaCalculus/TreePrinter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/TreePrinter.java" />
       </list>
     </option>
   </component>
@@ -247,6 +250,36 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lambdaCalculus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DeBruijn-indices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DeBruijn-indices" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -305,7 +338,7 @@
     <configuration default="false" name="IndicesConverter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="lambdaCalculus.*" />
+          <option name="PATTERN" value="lambdaCalculus.tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -325,7 +358,7 @@
     <configuration default="false" name="StandardLambda" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="lambdaCalculus.*" />
+          <option name="PATTERN" value="lambdaCalculus.tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -345,7 +378,7 @@
     <configuration default="false" name="TermRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="lambdaCalculus.*" />
+          <option name="PATTERN" value="lambdaCalculus.tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -891,7 +924,7 @@
       <workItem from="1460892840115" duration="43096000" />
       <workItem from="1461082780987" duration="6677000" />
       <workItem from="1461101452610" duration="14267000" />
-      <workItem from="1461256452521" duration="109000" />
+      <workItem from="1461256452521" duration="194000" />
     </task>
     <task id="LOCAL-00001" summary="initial setup">
       <created>1460803090394</created>
@@ -921,7 +954,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88022000" />
+    <option name="totallyTimeSpent" value="88107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1276" height="800" extended-state="6" />
@@ -1332,6 +1365,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9477124">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1348,7 +1382,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/TermRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
+          <caret line="78" column="40" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1358,14 +1392,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/TermsConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/Tree.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -1373,7 +1407,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/TreePrinter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/lambdaCalculus/tree/TreePrinter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7349666">
           <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />

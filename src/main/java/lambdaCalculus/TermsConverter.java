@@ -1,5 +1,7 @@
 package lambdaCalculus;
 
+import lambdaCalculus.tree.Tree;
+
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.List;

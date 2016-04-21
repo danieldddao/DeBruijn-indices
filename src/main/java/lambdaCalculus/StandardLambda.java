@@ -2,6 +2,7 @@ package lambdaCalculus;
 
 import lambdaCalculus.grammar.standardLambda.LambdaBaseListener;
 import lambdaCalculus.grammar.standardLambda.LambdaParser;
+import lambdaCalculus.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.Collections;

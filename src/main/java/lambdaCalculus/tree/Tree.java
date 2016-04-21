@@ -1,4 +1,4 @@
-package lambdaCalculus;
+package lambdaCalculus.tree;
 
 import java.util.List;
 
