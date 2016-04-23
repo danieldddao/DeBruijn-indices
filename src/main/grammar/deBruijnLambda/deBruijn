@@ -1,22 +1,22 @@
 grammar DeBruijn ;
 
-lambdaTerm: expr (NEWLINE | EOF);
+lambdaTerm: expr EOF;
 
 expr: num
     | abst
-    | func SPACE+ arg
-    | expr SPACE+ arg
-    | LEFT_PAREN+ expr RIGHT_PAREN+
+    | func SPACE arg
+    | expr SPACE arg
+    | LEFT_PAREN expr RIGHT_PAREN
 ;
 num: NUM ;
 abst: LAMBDA DOT expr;
 func: num
-    | LEFT_PAREN+ abst RIGHT_PAREN+
-    | func SPACE+ arg
+    | LEFT_PAREN abst RIGHT_PAREN
+    | func SPACE arg
 ;
 arg: num
    | LEFT_PAREN abst RIGHT_PAREN
-   | LEFT_PAREN+ func SPACE+ arg RIGHT_PAREN+
+   | LEFT_PAREN func SPACE arg RIGHT_PAREN
 ;
 
 LAMBDA: '\\' ;
@@ -26,4 +26,3 @@ LEFT_PAREN: '(' ;
 RIGHT_PAREN: ')' ;
 NUM: [0-9]+;
 WS: [\t\r\n]+ -> skip ;
-NEWLINE: [\r\n]+ ;

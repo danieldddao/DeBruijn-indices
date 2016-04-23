@@ -1,6 +1,8 @@
-package lambdaCalculus;
+package lambdaCalculus.project;
 
-import lambdaCalculus.tree.Tree;
+import lambdaCalculus.project.definition.DeBruijnLambda;
+import lambdaCalculus.project.definition.StandardLambda;
+import lambdaCalculus.project.tree.Tree;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.Map.Entry;
  * Convert lambda terms to De Bruijn terms.
  * And convert De Bruijn terms to lambda terms.
  */
-public class TermsConverter {
+public class TermConverter {
 
     private static final String lambda = "λ";
     private static final String app = "@";
@@ -22,9 +24,13 @@ public class TermsConverter {
     private static final String leftParen = "(";
     private static final String rightParen = ")";
 
+    private static int ct;
     private static int codeASCII = 97; // ASCII code for lowercase characters ([a-z] = [97-122])
     private static int ctASCII = 0;
 
+    /**
+     * Return a lowercase character from a - z.
+     **/
     private static String getVar() {
         String var = "";
         try {
@@ -47,10 +53,10 @@ public class TermsConverter {
         return var;
     }
 
-    /*
+    /**
      * Break the De Bruijn lambda tree into smaller STANDARD LAMBDA trees and store them in the list of STANDARD LAMBDA sub-trees
      * Return a list of STANDARD LAMBDA sub-trees
-     */
+     **/
     private static List<Tree<String>> breakDeBruijnLambdaTree(Tree<String> inputTree, List<Entry<String, Integer>> listVar, int ct) {
         List<Tree<String>> listTree = new ArrayList<Tree<String>>();
 
@@ -101,10 +107,17 @@ public class TermsConverter {
         return listTree;
     }
 
+    /**
+     * Build the Standard Lambda Tree based on the given list of sub-trees
+     */
     private static Tree<String> buildStandardLambdaTree(List<Tree<String>> listTree) {
-        return Tree.buildTreeFromRight(listTree);
+        Tree<String> tree = new Tree<String>("", null, null);
+        return tree.buildTreeFromRight(listTree);
     }
 
+    /**
+     * Build the Standard Lambda term based on the given Standard Lambda Tree
+     */
     private static String buildStandardLambdaTerm(Tree<String> inputTree) {
         String term = "";
         try {
@@ -112,7 +125,7 @@ public class TermsConverter {
                 term += inputTree.getData();
             }else if (inputTree.getData().equals(lambda)) {
                 /* insert lambda abstraction */
-                term += lambda + inputTree.getLeft().getData() + dot;
+                term += lambda + inputTree.getLeft().getData() + dot; // insert "λ" var "."
                 term += buildStandardLambdaTerm(inputTree.getRight());
             } else if (inputTree.getData().equals(app)) {
                 term += leftParen + buildStandardLambdaTerm(inputTree.getLeft());
@@ -125,9 +138,9 @@ public class TermsConverter {
         return term;
     }
 
-    /*
+    /**
      * Convert the DeBruijnLambda to StandardLambda
-     */
+     **/
     public static StandardLambda deBruijnToStandardLambda(DeBruijnLambda deBruijnLambda) {
         List<Tree<String>> listTree = breakDeBruijnLambdaTree(deBruijnLambda.getLambdaTree(), new ArrayList<Entry<String, Integer>>(), 0);
 
@@ -139,11 +152,11 @@ public class TermsConverter {
         return standardLambda;
     }
 
-    /*
+    /**
      * Break the standard lambda tree into smaller DE BRUIJN trees and store them in the list of DE BRUIJN sub-trees
      * Return a list of DE BRUIJN sub-trees
-     */
-    private static List<Tree<String>> breakStandardLambdaTree(Tree<String> inputTree, List<Entry<String, Integer>> listVar, int ct) {
+     **/
+    private static List<Tree<String>> breakStandardLambdaTree(Tree<String> inputTree, List<Entry<String, Integer>> listVar) {
         List<Tree<String>> listTree = new ArrayList<Tree<String>>();
         try {
             if (inputTree.getData().matches("[a-z]")) {  // If the node is a variable
@@ -159,8 +172,8 @@ public class TermsConverter {
                         }
                     }
                     if (num == -1) {  // If the variable is a free variable in the tree
-                        ct++;
                         num = listVar.get(0).getValue() + ct;
+                        ct++;
                     }
                 }
                 Tree<String> child = new Tree<String>(num + "", null, null);
@@ -174,12 +187,12 @@ public class TermsConverter {
                 listVar.add(entry);
                 Tree<String> child = new Tree<String>(lambda, null, null);
                 listTree.add(child);
-                listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVar, ct));
+                listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVar));
             } else if (inputTree.getData().equals(app)) {   // If the node is an application
                 Tree<String> child = new Tree<String>(app, null, null);
                 listTree.add(child);
-                listTree.addAll(breakStandardLambdaTree(inputTree.getLeft(), listVar, ct));
-                listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVar, ct));
+                listTree.addAll(breakStandardLambdaTree(inputTree.getLeft(), listVar));
+                listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVar));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -187,9 +200,17 @@ public class TermsConverter {
         return listTree;
     }
 
-    /*
-     * Build the De Bruijn term based on the given De Bruijn tree
+    /**
+     * Build the DeBruijn Lambda Tree based on the given list of sub-trees
      */
+    private static Tree<String> buildDeBruijnTree(List<Tree<String>> listTree) {
+        Tree<String> tree = new Tree<String>("", null, null);
+        return tree.buildTreeFromLeft(listTree);
+    }
+
+    /**
+     * Build the De Bruijn term based on the given De Bruijn tree
+     **/
     private static String buildDeBruijnTerm(Tree<String> inputTree) {
         String term = "";
         try {
@@ -209,14 +230,16 @@ public class TermsConverter {
         return term;
     }
 
-    /*
+    /**
      * Convert the StandardLambda to DeBruijnLambda
-     */
+     **/
     public static DeBruijnLambda standardLambdaToDeBruijn(StandardLambda standardLambda) {
-        List<Tree<String>> listTree = breakStandardLambdaTree(standardLambda.getLambdaTree(), new ArrayList<Entry<String, Integer>>(), 0);
+        ct = 1;
+        List<Tree<String>> listTree = breakStandardLambdaTree(standardLambda.getLambdaTree(), new ArrayList<Entry<String, Integer>>());
+
         /* Create a DeBruijnLambda from the given StandardLambda */
         DeBruijnLambda deBruijnLambda = new DeBruijnLambda();
-        deBruijnLambda.setLambdaTree(Tree.buildTreeFromLeft(listTree));
+        deBruijnLambda.setLambdaTree(buildDeBruijnTree(listTree));
         deBruijnLambda.setLambdaTerm(buildDeBruijnTerm(deBruijnLambda.getLambdaTree()));
 
         return deBruijnLambda;

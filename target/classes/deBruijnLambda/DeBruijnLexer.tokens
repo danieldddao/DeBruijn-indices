@@ -5,7 +5,6 @@ LEFT_PAREN=4
 RIGHT_PAREN=5
 NUM=6
 WS=7
-NEWLINE=8
 '\\'=1
 '.'=2
 ' '=3
