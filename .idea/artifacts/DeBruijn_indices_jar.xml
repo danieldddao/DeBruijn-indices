@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DeBruijn-indices:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DeBruijn_indices_jar</output-path>
+    <root id="archive" name="DeBruijn-indices.jar">
+      <element id="module-output" name="DeBruijn-indices" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/antlr/antlr4-runtime/4.5.3/antlr4-runtime-4.5.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -3,6 +3,7 @@ package lambdaCalculus.project;
 import lambdaCalculus.project.definition.DeBruijnLambda;
 import lambdaCalculus.project.definition.StandardLambda;
 import lambdaCalculus.project.tree.Tree;
+import lambdaCalculus.project.tree.TreePrinter;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -182,17 +183,29 @@ public class TermConverter {
             else if (inputTree.getData().equals(lambda)) {  // If the node is a lambda abstraction
                 for (Entry<String, Integer> entry : listVar) {
                     entry.setValue(entry.getValue() + 1);
+                    //System.out.println(entry.getKey() + "," + entry.getValue());
                 }
                 Entry<String, Integer> entry = new SimpleEntry<String, Integer>(inputTree.getLeft().getData(), 0);
                 listVar.add(entry);
+
                 Tree<String> child = new Tree<String>(lambda, null, null);
                 listTree.add(child);
                 listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVar));
             } else if (inputTree.getData().equals(app)) {   // If the node is an application
                 Tree<String> child = new Tree<String>(app, null, null);
                 listTree.add(child);
-                listTree.addAll(breakStandardLambdaTree(inputTree.getLeft(), listVar));
-                listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVar));
+
+                 /* Make a copy of the listVar */
+                List<Entry<String, Integer>> listVarCopy1 = new ArrayList<Entry<String, Integer>>();
+                List<Entry<String, Integer>> listVarCopy2 = new ArrayList<Entry<String, Integer>>();
+                for (Entry<String, Integer> entry : listVar) {
+                    listVarCopy1.add(new SimpleEntry<String, Integer>(entry.getKey(), entry.getValue()));
+                    listVarCopy2.add(new SimpleEntry<String, Integer>(entry.getKey(), entry.getValue()));
+                }
+
+                listTree.addAll(breakStandardLambdaTree(inputTree.getLeft(), listVarCopy1));
+                System.out.println();
+                listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVarCopy2));
             }
         } catch (Exception e) {
             e.printStackTrace();

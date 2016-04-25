@@ -1,0 +1,15 @@
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/tree/Tree.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/definition/StandardLambda.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/standardLambda/LambdaBaseListener.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/tree/TreePrinter.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/deBruijnLambda/DeBruijnParser.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/Autosubst.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/TermConverter.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/standardLambda/LambdaParser.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/deBruijnLambda/DeBruijnLexer.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/standardLambda/LambdaListener.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/definition/DeBruijnLambda.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/standardLambda/LambdaLexer.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/deBruijnLambda/DeBruijnBaseListener.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/TermRunner.java
+/Users/DeMonZ/Desktop/DeBruijn-indices/src/main/java/lambdaCalculus/grammar/deBruijnLambda/DeBruijnListener.java

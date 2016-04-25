@@ -96,30 +96,30 @@ public class DeBruijnLambda extends DeBruijnBaseListener {
         }
     }
 
-    /*
+    /**
      * Get the lambda tree
-     */
+     **/
     public Tree<String> getLambdaTree() {
         return lambdaTree;
     }
 
-    /*
+    /**
      * Set the lambda tree
-     */
+     **/
     public void setLambdaTree(Tree<String> lambdaTree) {
         this.lambdaTree = lambdaTree;
     }
 
-    /*
+    /**
      * Get the lambda term
-     */
+     **/
     public String getLambdaTerm() {
         return lambdaTerm;
     }
 
-    /*
+    /**
      * Set the lambda term
-     */
+     **/
     public void setLambdaTerm(String lambdaTerm) {
         this.lambdaTerm = lambdaTerm;
     }
