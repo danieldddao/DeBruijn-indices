@@ -24,26 +24,24 @@ public class Autosubst {
     private final String cons = "·";        // cons symbol
     private final String parens = "()";        // parentheses symbol
 
-    private List<Tree<String>> lambdaTreeList;
     private StandardLambda standardLambda;  // standardLambda after substitution
     private DeBruijnLambda deBruijnLambda;  // deBruijnLambda after substitution
 
     /**
      * Autosubst for StandardLambda input
      **/
-    public Autosubst (StandardLambda standardLambda) {
-        lambdaTreeList = new ArrayList<Tree<String>>();
+    public Autosubst(StandardLambda standardLambda) {
         DeBruijnLambda converteddeBruijnLambda = TermConverter.standardLambdaToDeBruijn(standardLambda);
         DeBruijnLambda substitutedDeBruijnLambda = calculateSubstitution(converteddeBruijnLambda);
-        //setDeBruijnLambda(substitutedDeBruijnLambda);
-        //setStandardLambda(TermConverter.deBruijnToStandardLambda(substitutedDeBruijnLambda));
+
+        setDeBruijnLambda(substitutedDeBruijnLambda);
+        setStandardLambda(TermConverter.deBruijnToStandardLambda(substitutedDeBruijnLambda));
     }
 
     /**
      * Autosubst for DeBruijnLambda input
      **/
-    public Autosubst (DeBruijnLambda deBruijnLambda) {
-        lambdaTreeList = new ArrayList<Tree<String>>();
+    public Autosubst(DeBruijnLambda deBruijnLambda) {
         DeBruijnLambda substitutedDeBruijnLambda = calculateSubstitution(deBruijnLambda);
 
         setDeBruijnLambda(substitutedDeBruijnLambda);
@@ -79,6 +77,33 @@ public class Autosubst {
     }
 
     /**
+     * Execute the Cons operation: (s·σ)(x) = s if x=0 | σ(x - 1) otherwise
+     * Tree looks like:     ()         s    |       ()
+     *                     /  \   =         |      /  \
+     *                    .   x             |     σ   x-1
+     *                   / \                |
+     *                  s  σ                |
+     * Return calculated tree
+     **/
+    public Tree<String> consOp(Tree<String> inputTree) {
+        Tree<String> result = null;
+        try {
+            if (inputTree.getRight().getData().equals("0")) {   // case x = 0
+                result = inputTree.getLeft().getLeft();
+            } else {
+                /* Build x-1 */
+                Tree<String> rightChild = new Tree<String>(Integer.parseInt(inputTree.getRight().getData())-1 + "", null, null);
+
+                /* Build σ(x - 1) */
+                result = new Tree<String>(parens, inputTree.getLeft().getRight(), rightChild);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
      * Execute the identity operation: id(x) = x
      * Tree looks like:     ()         x
      *                     /  \   =
@@ -88,7 +113,7 @@ public class Autosubst {
     public Tree<String> identity(Tree<String> inputTree) {
         Tree<String> result = null;
         try {
-
+            result = inputTree.getRight();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,7 +140,7 @@ public class Autosubst {
     }
 
     /**
-     * Execute the Shift Substitution operation: ⇑σ(x) = (0·(σ◦↑)) = (σ◦↑)(x-1) if x != 0, else 0
+     * Execute the Shift Substitution operation: ⇑σ(x) = (0·(σ◦↑)) = 0 if x=0 | (σ◦↑)(x-1) otherwise
      * Tree looks like:     ()         0        ()
      *                     /  \   =   / \  |   /  \
      *                    ⇑   x               ◦   x-1
@@ -126,7 +151,18 @@ public class Autosubst {
     public Tree<String> shiftSubstitution(Tree<String> inputTree) {
         Tree<String> result = null;
         try {
+            if (inputTree.getRight().getData().equals("0")) {
+                result = new Tree<String>("0", null, null);
+            } else {
+                /* Build x-1 */
+                Tree<String> rightChild = new Tree<String>(Integer.parseInt(inputTree.getRight().getData()) - 1 + "", null, null);
 
+                /* Build σ◦↑ */
+                Tree<String> leftChild = new Tree<String>(comp, inputTree.getLeft().getRight(), new Tree<String>(shiftElem, null, null));
+
+                /* Build (σ◦↑)(x-1)d */
+                result = new Tree<String>(parens, leftChild, rightChild);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -171,11 +207,7 @@ public class Autosubst {
         try {
             if (inputTree.getLeft().getData().matches("[0-9]+")) {  // case 1: x[σ]
                 System.out.println("CASE 1");
-                if (inputTree.getLeft().getData().equals("0")) {    // case 0[σ]
-                    lambdaTreeList.add(new Tree<String>("0", null, null));
-                } else {
-                    result = new Tree<String>(parens, inputTree.getRight().getRight(), inputTree.getLeft());
-                }
+                result = new Tree<String>(parens, inputTree.getRight().getRight(), inputTree.getLeft());
             } else if (inputTree.getLeft().getData().equals(app)) { // case 2: (t t')[σ]
                 System.out.println("CASE 2");
                 /* Build [σ] */
@@ -189,9 +221,7 @@ public class Autosubst {
 
                 /* Build (t[σ])(t'[σ]) */
                 result = new Tree<String>(app, leftChild, rightChild);
-                System.out.println("Right");
-                TreePrinter.printNode(rightChild);
-            } else if (inputTree.getLeft().getData().equals(lambda)) {                                                // case 3: (λ.t)[σ]
+            } else if (inputTree.getLeft().getData().equals(lambda)) {  // case 3: (λ.t)[σ]
                 System.out.println("CASE 3");
                 /* Build [⇑σ] */
                 Tree<String> instChild = new Tree<String>(inst, null, new Tree<String>(shiftSub, null, inputTree.getRight().getRight()));
@@ -200,8 +230,7 @@ public class Autosubst {
                 Tree<String> appChild = new Tree<String>(app, inputTree.getLeft().getRight(), instChild);
 
                 /* Build λ.(t[⇑σ]) */
-                lambdaTreeList.add(new Tree<String>(lambda, null, null)); // put λ to list
-                result = appChild;  // return t[⇑σ]
+                result = new Tree<String>(lambda, null, appChild);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -222,14 +251,20 @@ public class Autosubst {
     public Tree<String> composition(Tree<String> inputTree) {
         Tree<String> result = null;
         try {
+            /* Build [σ'] */
+            Tree<String> rightChild = new Tree<String>(inst, null, inputTree.getLeft().getRight());
 
+            /* Build σ(x) */
+            Tree<String> leftChild = new Tree<String>(parens, inputTree.getLeft().getLeft(), inputTree.getRight());
+
+            /* Build σ(x)[σ'] */
+            result = new Tree<String>(app, leftChild, rightChild);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return result;
     }
-
 
     /**
      * Execute the Beta-Reduction operation: (λ.t) t' -> t [t'·id]
@@ -265,27 +300,68 @@ public class Autosubst {
         Tree<String> inputTree = deBruijnTree;
         Tree<String> resultTree = null;
         try {
-            while (!inputTree.getData().matches("[0-9]+")) {
+            boolean condition = true;
+            while (condition) {
+                System.out.println("INPUT TREE");
+                TreePrinter.printNode(inputTree);
                 String data = inputTree.getData();
-                if (data.equals(lambda)) {                                      // start with "λ"
-                    Tree<String> tree = new Tree<String>(lambda, null, null);
-                    lambdaTreeList.add(tree);   // put "λ" to the list
-                    inputTree = inputTree.getRight();
+                if (data.matches("[0-9]+")) {
+                    resultTree = inputTree;
+                    condition = false;
+                } else if (data.equals(lambda)) {                                      // start with "λ"
+                    resultTree = new Tree<String>(lambda, null, calculateSubstTree(inputTree.getRight()));
+                    condition = false;
                 } else if (data.equals(app)) {
                     if (inputTree.getRight().getData().equals(inst)) {          // Instantiation
-                        System.out.println("Instant");
-                        inputTree = instantiation(inputTree);
+                        if (inputTree.getLeft().getData().equals(lambda) | inputTree.getLeft().getData().equals(app) | inputTree.getLeft().getData().matches("[0-9]+")) {
+                            System.out.println("Instant");
+                            inputTree = instantiation(inputTree);
+                        } else {
+                            Tree<String> leftChild = calculateSubstTree(inputTree.getLeft());
+                            Tree<String> rightChild = calculateSubstTree(inputTree.getRight());
+                            System.out.println("Other App");
+                            inputTree = new Tree<String>(app, leftChild, rightChild);
+                        }
                     } else if (inputTree.getLeft().getData().equals(lambda)) {  // Beta-reduction
                         System.out.println("Beta Reduc");
                         inputTree = betaReduction(inputTree);
                     } else {
-                        lambdaTreeList.add(new Tree<String>(app, null, null));
-                        calculateSubstTree(inputTree.getLeft());
-                        calculateSubstTree(inputTree.getRight());
+                        resultTree = new Tree<String>(app, calculateSubstTree(inputTree.getLeft()), calculateSubstTree(inputTree.getRight()));
+                        System.out.println("APP ELSE");
+                        condition = false;
                     }
+                } else if (data.equals(parens)) {                               // start with "()"
+                    System.out.println("parens");
+                    data = inputTree.getLeft().getData();
+                    if (data.equals(id)) {                                      // identity operation
+                        System.out.println("id");
+                        inputTree = identity(inputTree);
+                    } else  if (data.equals(shiftElem)) {                       // shift-element operation
+                        System.out.println("shiftElem");
+                        inputTree = shiftElement(inputTree);
+                    } else if (data.equals(shiftSub)) {                         // shift-substitution operation
+                        System.out.println("shiftSub");
+                        inputTree = shiftSubstitution(inputTree);
+                    } else if (data.equals(cons)) {                             // cons operation
+                        System.out.println("cons");
+                        inputTree = consOp(inputTree);
+                    } else if (data.equals(comp)) {                             // composition operation
+                        System.out.println("comp");
+                        inputTree = composition(inputTree);
+                    }
+                } else {
+                    System.out.println("break");
+                    resultTree = inputTree;
+                    condition = false;
                 }
-                //TreePrinter.printNode(inputTree);
+//                System.out.println("LIST");
+//                for (Tree<String> x : lambdaTreeList)
+//                    TreePrinter.printNode(x);
+//                System.out.println("OUTPUT TREE");
+//                TreePrinter.printNode(inputTree);
             }
+            System.out.println("RESULT TREE");
+            TreePrinter.printNode(resultTree);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -298,16 +374,16 @@ public class Autosubst {
      * Return calculated DeBruijn Lambda
      **/
     public DeBruijnLambda calculateSubstitution(DeBruijnLambda inputLambda) {
-        DeBruijnLambda deBruijnLambda = null;
+        DeBruijnLambda deBruijnLambda = new DeBruijnLambda();
         try {
             Tree<String> inputTree = inputLambda.getLambdaTree();
-            calculateSubstTree(inputTree);
-            for (Tree<String> x : lambdaTreeList)
-                TreePrinter.printNode(x);
+            Tree<String> calculatedTree = calculateSubstTree(inputTree);
+
+            deBruijnLambda.setLambdaTree(calculatedTree);
+            deBruijnLambda.setLambdaTerm(TermConverter.buildDeBruijnTerm(calculatedTree));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return deBruijnLambda;
     }
 }

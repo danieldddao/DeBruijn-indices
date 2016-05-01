@@ -33,9 +33,10 @@ public class AutosubstTest {
                     DeBruijnLambda deBruijnLambda = TermConverter.standardLambdaToDeBruijn(standardLambda);
                     TermRunner.printDeBruijn(deBruijnLambda);
 
+                    /* AutoSubst */
                     Autosubst autosubst = new Autosubst(standardLambda);
-                    //TermRunner.printLambdaAutosubst(autosubst.getStandardLambda());
-                    //TermRunner.printDeBruijnAutosubst(autosubst.getDeBruijnLambda());
+                    TermRunner.printLambdaAutosubst(autosubst.getStandardLambda());
+                    TermRunner.printDeBruijnAutosubst(autosubst.getDeBruijnLambda());
                 } else if (list.get(0).equals("debruijn")) {
                     TermRunner.setError(false);
                     DeBruijnLambda deBruijnLambda = TermRunner.setupDeBruijn(list.get(2));

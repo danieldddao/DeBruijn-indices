@@ -119,7 +119,7 @@ public class TermConverter {
     /**
      * Build the Standard Lambda term based on the given Standard Lambda Tree
      */
-    private static String buildStandardLambdaTerm(Tree<String> inputTree) {
+    public static String buildStandardLambdaTerm(Tree<String> inputTree) {
         String term = "";
         try {
             if (inputTree.getData().matches("[a-z]+")) {
@@ -129,9 +129,22 @@ public class TermConverter {
                 term += lambda + inputTree.getLeft().getData() + dot; // insert "λ" var "."
                 term += buildStandardLambdaTerm(inputTree.getRight());
             } else if (inputTree.getData().equals(app)) {
-                term += leftParen + buildStandardLambdaTerm(inputTree.getLeft());
+
+                // if function is a lambda abstraction, surround it with parentheses
+                if (inputTree.getLeft().getData().equals(lambda)) {
+                    term += leftParen + buildStandardLambdaTerm(inputTree.getLeft()) + rightParen;
+                } else {
+                    term += buildStandardLambdaTerm(inputTree.getLeft());
+                }
+
                 term += space; // insert " " between function and argument
-                term += buildStandardLambdaTerm(inputTree.getRight()) + rightParen;
+
+                // if argument is a lambda abstraction, surround it with parentheses
+                if (inputTree.getRight().getData().equals(lambda) | inputTree.getRight().getData().equals(app)) {
+                    term += leftParen + buildStandardLambdaTerm(inputTree.getRight()) + rightParen;
+                } else {
+                    term += buildStandardLambdaTerm(inputTree.getRight());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -170,6 +183,7 @@ public class TermConverter {
                     for (int x = listVar.size()-1; x >=0; x--) {
                         if (var.equals(listVar.get(x).getKey())) {
                             num = listVar.get(x).getValue();
+                            break;
                         }
                     }
                     if (num == -1) {  // If the variable is a free variable in the tree
@@ -204,7 +218,6 @@ public class TermConverter {
                 }
 
                 listTree.addAll(breakStandardLambdaTree(inputTree.getLeft(), listVarCopy1));
-                System.out.println();
                 listTree.addAll(breakStandardLambdaTree(inputTree.getRight(), listVarCopy2));
             }
         } catch (Exception e) {
@@ -224,7 +237,7 @@ public class TermConverter {
     /**
      * Build the De Bruijn term based on the given De Bruijn tree
      **/
-    private static String buildDeBruijnTerm(Tree<String> inputTree) {
+    public static String buildDeBruijnTerm(Tree<String> inputTree) {
         String term = "";
         try {
             if (inputTree.getData().matches("[0-9]+")) {
@@ -233,9 +246,21 @@ public class TermConverter {
                  term += lambda + dot; // insert "λ."
                  term += buildDeBruijnTerm(inputTree.getRight());
              } else if (inputTree.getData().equals(app)) {
-                 term += leftParen + buildDeBruijnTerm(inputTree.getLeft());
-                 term += space; // insert " " between function and argument
-                 term += buildDeBruijnTerm(inputTree.getRight()) + rightParen;
+                // if function is a lambda abstraction, surround it with parentheses
+                if (inputTree.getLeft().getData().equals(lambda)) {
+                    term += leftParen + buildDeBruijnTerm(inputTree.getLeft()) + rightParen;
+                } else {
+                    term += buildDeBruijnTerm(inputTree.getLeft());
+                }
+
+                term += space; // insert " " between function and argument
+
+                // if argument is a lambda abstraction, surround it with parentheses
+                if (inputTree.getRight().getData().equals(lambda) | inputTree.getRight().getData().equals(app)) {
+                    term += leftParen + buildDeBruijnTerm(inputTree.getRight()) + rightParen;
+                } else {
+                    term += buildDeBruijnTerm(inputTree.getRight());
+                }
              }
         } catch (Exception e) {
             e.printStackTrace();

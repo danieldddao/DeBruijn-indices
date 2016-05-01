@@ -97,11 +97,9 @@ public class TermRunner {
     public static void printLambdaAutosubst(StandardLambda standardLambda) {
         try {
             if (!error) {
-                Autosubst autosubst = new Autosubst(standardLambda);
-                StandardLambda substitutedLambda = autosubst.getStandardLambda();
-                System.out.println("Autosubst Lambda TERM: " + substitutedLambda.getLambdaTerm());
+                System.out.println("Autosubst Lambda TERM: " + standardLambda.getLambdaTerm());
                 System.out.println("Autosubst Lambda TREE:");
-                TreePrinter.printNode(substitutedLambda.getLambdaTree());
+                TreePrinter.printNode(standardLambda.getLambdaTree());
                 System.out.println();
             }
         } catch (Exception e) {
@@ -112,11 +110,9 @@ public class TermRunner {
     public static void printDeBruijnAutosubst(DeBruijnLambda deBruijnLambda) {
         try {
             if (!error) {
-                Autosubst autosubst = new Autosubst(deBruijnLambda);
-                DeBruijnLambda substitutedDeBruijn = autosubst.getDeBruijnLambda();
-                System.out.println("Autosubst DeBruijn TERM: " + substitutedDeBruijn.getLambdaTerm());
+                System.out.println("Autosubst DeBruijn TERM: " + deBruijnLambda.getLambdaTerm());
                 System.out.println("Autosubst DeBruijn TREE:");
-                TreePrinter.printNode(substitutedDeBruijn.getLambdaTree());
+                TreePrinter.printNode(deBruijnLambda.getLambdaTree());
                 System.out.println();
             }
         } catch (Exception e) {
