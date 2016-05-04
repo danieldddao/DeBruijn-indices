@@ -26,17 +26,23 @@ public class DemoTest {
             }
             if (list.size() == 3) {
                 if (list.get(0).equals("lambda")) {
-                    TermRunner.setError(false);
-                    StandardLambda standardLambda = TermRunner.setupLambda(list.get(2));
-                    TermRunner.printLambda(standardLambda);
+                    LambdaPrinter.setError(false);
+                    StandardLambda standardLambda = LambdaPrinter.setupLambda(list.get(2));
+                    LambdaPrinter.printStandardLambdaTerm(standardLambda);
+                    LambdaPrinter.printStandardLambdaTree(standardLambda);
+
                     DeBruijnLambda deBruijnLambda = TermConverter.standardLambdaToDeBruijn(standardLambda);
-                    TermRunner.printDeBruijn(deBruijnLambda);
+                    LambdaPrinter.printDeBruijnTerm(deBruijnLambda);
+                    LambdaPrinter.printDeBruijnTree(deBruijnLambda);
                 } else if (list.get(0).equals("debruijn")) {
-                    TermRunner.setError(false);
-                    DeBruijnLambda deBruijnLambda = TermRunner.setupDeBruijn(list.get(2));
-                    TermRunner.printDeBruijn(deBruijnLambda);
+                    LambdaPrinter.setError(false);
+                    DeBruijnLambda deBruijnLambda = LambdaPrinter.setupDeBruijn(list.get(2));
+                    LambdaPrinter.printDeBruijnTerm(deBruijnLambda);
+                    LambdaPrinter.printDeBruijnTree(deBruijnLambda);
+
                     StandardLambda standardLambda = TermConverter.deBruijnToStandardLambda(deBruijnLambda);
-                    TermRunner.printLambda(standardLambda);
+                    LambdaPrinter.printStandardLambdaTerm(standardLambda);
+                    LambdaPrinter.printStandardLambdaTree(standardLambda);
                 }
             } else {
                 System.out.println("Please enter correct input!\n first line = lambda or debruijn, second line = term");

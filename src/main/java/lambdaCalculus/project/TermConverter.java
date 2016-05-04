@@ -2,8 +2,6 @@ package lambdaCalculus.project;
 
 import lambdaCalculus.project.definition.DeBruijnLambda;
 import lambdaCalculus.project.definition.StandardLambda;
-import lambdaCalculus.project.tree.Tree;
-import lambdaCalculus.project.tree.TreePrinter;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -58,7 +56,7 @@ public class TermConverter {
      * Break the De Bruijn lambda tree into smaller STANDARD LAMBDA trees and store them in the list of STANDARD LAMBDA sub-trees
      * Return a list of STANDARD LAMBDA sub-trees
      **/
-    private static List<Tree<String>> breakDeBruijnLambdaTree(Tree<String> inputTree, List<Entry<String, Integer>> listVar, int ct) {
+    public static List<Tree<String>> breakDeBruijnLambdaTree(Tree<String> inputTree, List<Entry<String, Integer>> listVar, int ct) {
         List<Tree<String>> listTree = new ArrayList<Tree<String>>();
 
         try {
@@ -111,7 +109,7 @@ public class TermConverter {
     /**
      * Build the Standard Lambda Tree based on the given list of sub-trees
      */
-    private static Tree<String> buildStandardLambdaTree(List<Tree<String>> listTree) {
+    public static Tree<String> buildStandardLambdaTree(List<Tree<String>> listTree) {
         Tree<String> tree = new Tree<String>("", null, null);
         return tree.buildTreeFromRight(listTree);
     }
@@ -187,8 +185,8 @@ public class TermConverter {
                         }
                     }
                     if (num == -1) {  // If the variable is a free variable in the tree
-                        num = listVar.get(0).getValue() + ct;
                         ct++;
+                        num = listVar.get(0).getValue() + ct;
                     }
                 }
                 Tree<String> child = new Tree<String>(num + "", null, null);
@@ -272,7 +270,7 @@ public class TermConverter {
      * Convert the StandardLambda to DeBruijnLambda
      **/
     public static DeBruijnLambda standardLambdaToDeBruijn(StandardLambda standardLambda) {
-        ct = 1;
+        ct = 0;
         List<Tree<String>> listTree = breakStandardLambdaTree(standardLambda.getLambdaTree(), new ArrayList<Entry<String, Integer>>());
 
         /* Create a DeBruijnLambda from the given StandardLambda */

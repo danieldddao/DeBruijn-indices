@@ -2,7 +2,7 @@ package lambdaCalculus.project.definition;
 
 import lambdaCalculus.project.grammar.deBruijnLambda.DeBruijnBaseListener;
 import lambdaCalculus.project.grammar.deBruijnLambda.DeBruijnParser;
-import lambdaCalculus.project.tree.Tree;
+import lambdaCalculus.project.Tree;
 
 import java.util.ArrayList;
 import java.util.Collections;

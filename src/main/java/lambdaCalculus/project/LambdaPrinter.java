@@ -8,15 +8,13 @@ import lambdaCalculus.project.grammar.deBruijnLambda.DeBruijnParser;
 import lambdaCalculus.project.grammar.standardLambda.LambdaLexer;
 import lambdaCalculus.project.grammar.standardLambda.LambdaParser;
 
-import lambdaCalculus.project.tree.TreePrinter;
-
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 /**
  * Created by Daniel Dao on 4/16/16.
  */
-public class TermRunner {
+public class LambdaPrinter {
 
     private static boolean error;
 
@@ -46,19 +44,6 @@ public class TermRunner {
         return listener;
     }
 
-    public static void printLambda(StandardLambda standardLambda) {
-        try {
-            if (!error) {
-                System.out.println("Standard Lambda TERM: " + standardLambda.getLambdaTerm());
-                System.out.println("Standard Lambda TREE:");
-                TreePrinter.printNode(standardLambda.getLambdaTree());
-                System.out.println();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static DeBruijnLambda setupDeBruijn(String input) {
         DeBruijnLambda listener = new DeBruijnLambda();
         try {
@@ -81,12 +66,33 @@ public class TermRunner {
         return listener;
     }
 
-    public static void printDeBruijn(DeBruijnLambda deBruijnLambda) {
+    public static void printStandardLambdaTerm(StandardLambda standardLambda) {
+        try {
+            if (!error) {
+                System.out.println("Standard Lambda TERM: " + standardLambda.getLambdaTerm());
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void printStandardLambdaTree(StandardLambda standardLambda) {
+        try {
+            if (!error) {
+                System.out.println("Standard Lambda TREE:");
+                standardLambda.getLambdaTree().printTree();
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void printDeBruijnTerm(DeBruijnLambda deBruijnLambda) {
         try {
             if (!error) {
                 System.out.println("DeBruijn TERM: " + deBruijnLambda.getLambdaTerm());
-                System.out.println("DeBruijn TREE:");
-                TreePrinter.printNode(deBruijnLambda.getLambdaTree());
                 System.out.println();
             }
         } catch (Exception e) {
@@ -94,12 +100,22 @@ public class TermRunner {
         }
     }
 
-    public static void printLambdaAutosubst(StandardLambda standardLambda) {
+    public static void printDeBruijnTree(DeBruijnLambda deBruijnLambda) {
+        try {
+            if (!error) {
+                System.out.println("DeBruijn TREE:");
+                deBruijnLambda.getLambdaTree().printTree();
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void printLambdaAutosubstTerm(StandardLambda standardLambda) {
         try {
             if (!error) {
                 System.out.println("Autosubst Lambda TERM: " + standardLambda.getLambdaTerm());
-                System.out.println("Autosubst Lambda TREE:");
-                TreePrinter.printNode(standardLambda.getLambdaTree());
                 System.out.println();
             }
         } catch (Exception e) {
@@ -107,12 +123,22 @@ public class TermRunner {
         }
     }
 
-    public static void printDeBruijnAutosubst(DeBruijnLambda deBruijnLambda) {
+    public static void printLambdaAutosubstTree(StandardLambda standardLambda) {
+        try {
+            if (!error) {
+                System.out.println("Autosubst Lambda TREE:");
+                standardLambda.getLambdaTree().printTree();
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void printDeBruijnAutosubstTerm(DeBruijnLambda deBruijnLambda) {
         try {
             if (!error) {
                 System.out.println("Autosubst DeBruijn TERM: " + deBruijnLambda.getLambdaTerm());
-                System.out.println("Autosubst DeBruijn TREE:");
-                TreePrinter.printNode(deBruijnLambda.getLambdaTree());
                 System.out.println();
             }
         } catch (Exception e) {
@@ -120,24 +146,31 @@ public class TermRunner {
         }
     }
 
-    public static void main(String[] args) {
-        setError(false);
+    public static void printDeBruijnAutosubstTree(DeBruijnLambda deBruijnLambda) {
         try {
-            if (args.length == 2) {
-                if (args[0].equals("lambda")) {
-                    StandardLambda standardLambda = setupLambda(args[1]);
-                    printLambda(standardLambda);
-                    DeBruijnLambda deBruijnLambda = TermConverter.standardLambdaToDeBruijn(standardLambda);
-                    printDeBruijn(deBruijnLambda);
-                } else if (args[0].equals("debruijn")) {
-                    DeBruijnLambda deBruijnLambda = setupDeBruijn(args[1]);
-                    printDeBruijn(deBruijnLambda);
-                    StandardLambda standardLambda = TermConverter.deBruijnToStandardLambda(deBruijnLambda);
-                    printLambda(standardLambda);
-                } else {
-                    throw new Exception("Given argument is not correct! Please try again!");
-                }
+            if (!error) {
+                System.out.println("Autosubst DeBruijn TREE:");
+                deBruijnLambda.getLambdaTree().printTree();
+                System.out.println();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void printDeBruijnFullReductionSteps(Autosubst autosubst) {
+        try {
+            System.out.println("Reduction steps in De Bruijn representation:");
+            System.out.println(autosubst.getDeBruijnFullReduction());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void printStandardLambdaFullReductionSteps(Autosubst autosubst) {
+        try {
+            System.out.println("Reduction steps in Standard Lambda representation:");
+            System.out.println(autosubst.getLambdaFullReduction());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,7 +1,5 @@
 package lambdaCalculus.project;
 
-import lambdaCalculus.project.TermConverter;
-import lambdaCalculus.project.TermRunner;
 import lambdaCalculus.project.definition.DeBruijnLambda;
 import lambdaCalculus.project.definition.StandardLambda;
 
@@ -27,11 +25,16 @@ public class DeBruijnToStandardLambdaTest {
             }
             if (list.size() != 0) {
                 for (String term : list) {
-                    TermRunner.setError(false);
-                    DeBruijnLambda deBruijnLambda = TermRunner.setupDeBruijn(term);
-                    TermRunner.printDeBruijn(deBruijnLambda);
+                    LambdaPrinter.setError(false);
+                    DeBruijnLambda deBruijnLambda = LambdaPrinter.setupDeBruijn(term);
+                    LambdaPrinter.printDeBruijnTerm(deBruijnLambda);
+                    LambdaPrinter.printDeBruijnTree(deBruijnLambda);
+
                     StandardLambda standardLambda = TermConverter.deBruijnToStandardLambda(deBruijnLambda);
-                    TermRunner.printLambda(standardLambda);
+                    LambdaPrinter.printStandardLambdaTerm(standardLambda);
+                    LambdaPrinter.printStandardLambdaTree(standardLambda);
+                    System.out.println("----------------------------------------------------------------------------------------------------------------------------");
+                    System.out.println();
                 }
             } else {
                 System.out.println("There's no input term, please enter some input terms");
