@@ -68,14 +68,14 @@
 
 * Given a standard lambda term INPUT, you first need to set up parsers and lexers. This can be done by calling `LambdaPrinter.setupLambda(String input)`. E.g.:
     
-    - LambdaPrinter.setupLambda(myTerm) where `input` is the standard lambda term String input.
+    - StandardLambda myStandardLambda = LambdaPrinter.setupLambda(myTerm) where `input` is the standard lambda term String input.
     
 * Similarly, given a De Bruijn term INPUT, you first need to set up parsers and lexers. This can be done by calling `LambdaPrinter.setupDeBruijn(String input)` where `input` is the standard lambda term input. E.g.:
     
-    - LambdaPrinter.setupDeBruijn(myTerm) where `input` is the standard lambda term String input.
+    - DeBruijnLambda myDeBruijnLambda = LambdaPrinter.setupDeBruijn(myTerm) where `input` is the standard lambda term String input.
 
 ######2. Printing Term and Tree:
-After 1st step, the function will return:
+    After 1st step, the function will return:
 
 * `StandardLambda` if you call **setupLambda** function. Then you can print out the term and the tree by calling `LambdaPrinter.printStandardLambdaTerm(StandardLambda standardLambda)` and `LambdaPrinter.printStandardLambdaTree(StandardLambda standardLambda)` respectively. It will print out the standard lambda term and tree like below:
 
@@ -96,6 +96,10 @@ After 1st step, the function will return:
 
 
 ######3. Autosubst:
+    Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
+    
+* To use Autosubst, you need to create an instance of the class Autosubst. For example:
+    * Autosubst myautosubst = new Autosubst(myStandardLambda)
 
 ---
 <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
