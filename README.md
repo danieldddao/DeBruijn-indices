@@ -102,12 +102,14 @@ If you have a String input where `\` is used as `λ`. E.g.:
     <img width="212" alt="screenshot 2016-05-07 09 10 30" src="https://cloud.githubusercontent.com/assets/17075659/15092577/c84182ee-1433-11e6-96e8-c71d532158b9.png">
     <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092575/c83e1a32-1433-11e6-853f-99482a285ff0.png">
 
+######3. Converting a term:
 
-######3. Autosubst:
-    Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
+######4. Autosubst:
+    Then you can use Autosubst to calculate substituation. 
+    Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
     
 * To use Autosubst, you need to create an instance of the class Autosubst. For example:
-    * Autosubst myautosubst = new Autosubst(myStandardLambda)
+    * **Autosubst myautosubst = new Autosubst(myStandardLambda)**
 
 ---
 <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
