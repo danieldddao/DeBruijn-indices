@@ -14,7 +14,7 @@
 
 > They are written using `ANTLR 4` parser generator for parsing the input terms.
 
-> `**\**` is used as `**λ**`. E.g.: **\x.\y.x y = λx.λy.x y**
+> `\` is used as `λ`. E.g.: **\x.\y.x y = λx.λy.x y**
 
 > I defined grammar for a term as:
     
@@ -65,6 +65,10 @@
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial
+If you have a String input. E.g.: 
+
+    String myTerm = "\x.y z";
+    String myTerm = "z x t";
 
 ######1. Setup:
 
@@ -74,7 +78,7 @@
     
 * Similarly, given a De Bruijn term INPUT, you first need to set up parsers and lexers. This can be done by calling `LambdaPrinter.setupDeBruijn(String input)` where `input` is the standard lambda term input. E.g.:
     
-    - **DeBruijnLambda myDeBruijnLambda = LambdaPrinter.setupDeBruijn(myTerm)** where `myTerm` is the standard lambda term String input.
+    - **DeBruijnLambda myDeBruijnLambda = LambdaPrinter.setupDeBruijn(myTerm)** where `myTerm` is the De Bruijn term String input.
 
 ######2. Printing Term and Tree:
     After 1st step, the function will return:
