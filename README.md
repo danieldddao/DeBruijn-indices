@@ -4,7 +4,8 @@
 ## Grammar
     Grammars for standard lambda terms and De Bruijn terms are stored in `src/main/java/lambdaCalculus/project/grammar`:
     I defined grammar for a lambda term as:
-    A term is either:
+    
+  > A term is either:
   > - variable (for standard lambda term) | number (for De Bruijn term)
   
   > - lambda abstraction
