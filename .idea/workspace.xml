@@ -6,35 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06873b39-e648-41b0-be11-2ad07f32b593" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/DeBruijn.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/DeBruijnBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/DeBruijnLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/DeBruijnLexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/DeBruijnListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/DeBruijnParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/deBruijnLambda/deBruijn" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/Lambda" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/Lambda.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/LambdaBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/LambdaLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/LambdaLexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/LambdaListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/grammar/standardLambda/LambdaParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/deBruijnLambda/DeBruijn" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/deBruijnLambda/DeBruijn.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/deBruijnLambda/DeBruijnLexer.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/standardLambda/Lambda" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/standardLambda/Lambda.tokens" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/standardLambda/LambdaLexer.tokens" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/Autosubst.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/Autosubst.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/TermConverter.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/TermConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/Tree.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/Tree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/definition/DeBruijnLambda.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/definition/DeBruijnLambda.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/definition/StandardLambda.java" afterPath="$PROJECT_DIR$/src/main/java/lambdaCalculus/project/definition/StandardLambda.java" />
-    </list>
+    <list default="true" id="06873b39-e648-41b0-be11-2ad07f32b593" name="Default" comment="" />
     <ignored path="DeBruijn-indices.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -56,12 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AutosubstStandardLambdaTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AutosubstStandardLambdaTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/lambdaCalculus/project/AutosubstStandardLambdaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39173788">
+            <state vertical-scroll-proportion="0.0">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="0.76506954">
+                <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -1000,7 +988,7 @@
       <workItem from="1462231736134" duration="4531000" />
       <workItem from="1462292127943" duration="8865000" />
       <workItem from="1462400222052" duration="3124000" />
-      <workItem from="1462629644737" duration="967000" />
+      <workItem from="1462629644737" duration="1029000" />
     </task>
     <task id="LOCAL-00001" summary="initial setup">
       <created>1460803090394</created>
@@ -1030,7 +1018,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157622000" />
+    <option name="totallyTimeSpent" value="157684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -1435,6 +1423,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/lambdaCalculus/project/AutosubstStandardLambdaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1446,19 +1442,11 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <first_editor vertical-scroll-proportion="0.76506954">
+            <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/lambdaCalculus/project/AutosubstStandardLambdaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39173788">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
