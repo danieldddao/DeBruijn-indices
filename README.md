@@ -29,7 +29,7 @@
   2. If a argument is a lambda abstraction or an application, it must be inside parentheses. Otherwise, no parentheses needed. Examples:
     1. f **(\x.x)**
     2. f **(x y)**
-    3. f **x**)
+    3. f **x**
 
 -----------------------------------------------------------------------------------------------------------------------------
 ## Project's structure
