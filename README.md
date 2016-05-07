@@ -2,7 +2,7 @@
 
 -----------------------------------------------------------------------------------------------------------------------------
 ## Libraries
-> Besides standard Java libraries, you will need antlr4-runtime library in order to build and execute parsers/lexers generated in Java:
+> Besides standard Java library, you will need antlr4-runtime library in order to build and execute parsers/lexers generated in Java:
 
 > antlr4-runtime: http://www.antlr.org/download/antlr-runtime-4.5.3.jar
     
