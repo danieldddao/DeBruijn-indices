@@ -31,7 +31,9 @@
     
 > The test code is stored in `/src/test/java/lambdaCalculus/project`:
 
-    There're several test classes for testing the input terms, conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda, and Autosubst.
+    There're several test classes for testing the input terms, 
+    conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda, 
+    and Autosubst.
 
 -----------------------------------------------------------------------------------------------------------------------------
 ## Classes
