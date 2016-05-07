@@ -68,11 +68,11 @@
 
 * Given a standard lambda term INPUT, you first need to set up parsers and lexers. This can be done by calling `LambdaPrinter.setupLambda(String input)`. E.g.:
     
-    - StandardLambda myStandardLambda = LambdaPrinter.setupLambda(myTerm) where `input` is the standard lambda term String input.
+    - **StandardLambda myStandardLambda = LambdaPrinter.setupLambda(myTerm)** where `myTerm` is the standard lambda term String input.
     
 * Similarly, given a De Bruijn term INPUT, you first need to set up parsers and lexers. This can be done by calling `LambdaPrinter.setupDeBruijn(String input)` where `input` is the standard lambda term input. E.g.:
     
-    - DeBruijnLambda myDeBruijnLambda = LambdaPrinter.setupDeBruijn(myTerm) where `input` is the standard lambda term String input.
+    - **DeBruijnLambda myDeBruijnLambda = LambdaPrinter.setupDeBruijn(myTerm)** where `myTerm` is the standard lambda term String input.
 
 ######2. Printing Term and Tree:
     After 1st step, the function will return:
