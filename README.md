@@ -14,6 +14,8 @@
 
 > They are written using `ANTLR 4` parser generator for parsing the input terms.
 
+> `**\**` is used as `**λ**`. E.g.: **\x.\y.x y = λx.λy.x y**
+
 > I defined grammar for a term as:
     
   > A term is either:
