@@ -49,12 +49,11 @@
 -----------------------------------------------------------------------------------------------------------------------------
 ## Classes
 
-> - DeBruijnLambda class and StandardLambda class
-
-    1. DeBruijnLambda contains the term and tree translated from the given input De Bruijn term
-    2. StandardLambda contains the term and tree translated from the given input standard lambda term
-    
->  - Autosubst class contains the implementation of Autosubst's operations from the paper, "Autosubst: Reasoning with de Bruijn Terms and Parallel Substitutions by Steven Schäfer , Tobias Tebbi, and Gert Smolka"
+> - DeBruijnLambda class and StandardLambda class:
+   1. DeBruijnLambda contains the term and tree translated from the given input De Bruijn term.
+   2. StandardLambda contains the term and tree translated from the given input standard lambda term.
+   
+> - Autosubst class contains the implementation of Autosubst's operations from the paper, "Autosubst: Reasoning with de Bruijn Terms and Parallel Substitutions by Steven Schäfer , Tobias Tebbi, and Gert Smolka"
 
 > - Tree class contains the implementation of binary tree
 
