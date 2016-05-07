@@ -2,8 +2,9 @@
 
 -----------------------------------------------------------------------------------------------------------------------------
 ## Grammar
-    Grammars for standard lambda terms and De Bruijn terms are stored in `src/main/java/lambdaCalculus/project/grammar`:
-    I defined grammar for a term as:
+> Grammars for standard lambda terms and De Bruijn terms are stored in `src/main/java/lambdaCalculus/project/grammar`:
+> They are written using `ANTLR 4` parser generator.
+> I defined grammar for a term as:
     
   > A term is either:
   > - variable (for standard lambda term) | number (for De Bruijn term)
