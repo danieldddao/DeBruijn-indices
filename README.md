@@ -1,5 +1,33 @@
 # DeBruijn-indices
 
+-----------------------------------------------------------------------------------------------------------------------------
+## Grammar
+    Grammars for standard lambda terms and De Bruijn terms are stored in `src/main/java/lambdaCalculus/project/grammar`:
+    I defined grammar for a lambda term as:
+    A term is either:
+  > - variable (for standard lambda term) | number (for De Bruijn term)
+  
+  > - lambda abstraction
+  
+  > - application which is translated as **function SPACE argument**:
+  1. If a function is a lambda abstraction, it must be inside parentheses. Otherwise, no parentheses needed. Examples:
+    1. **(\x.y)** a
+    2. **f g** a
+    3. **f** a
+  2. If a argument is a lambda abstraction or an application, it must be inside parentheses. Otherwise, no parentheses needed. Examples:
+    1. f **(\x.x)**
+    2. f **(x y)**
+    3. f **x**)
+
+-----------------------------------------------------------------------------------------------------------------------------
+## Project's structure
+    The code is stored in `/src/main/java/lambdaCalculus/project`. Inside the folder, it contains:
+      1. Grammar folder as described above
+      2. Definition folder which contains **DeBruijnLambda** class and **StandardLambda** class
+
+The test code is stored in `/src/test/java/lambdaCalculus/project`
+-----------------------------------------------------------------------------------------------------------------------------
+## Classes
 <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
 <img width="363" alt="screenshot 2016-05-07 09 11 20" src="https://cloud.githubusercontent.com/assets/17075659/15092574/c83e2df6-1433-11e6-9418-f0ecced69a3e.png">
 <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
