@@ -1,9 +1,19 @@
 # DeBruijn-indices
 
 -----------------------------------------------------------------------------------------------------------------------------
+## Libraries
+> Besides standard Java libraries, you will need antlr4-runtime library in order to build and execute parsers/lexers generated in Java:
+
+> antlr4-runtime: http://www.antlr.org/download/antlr-runtime-4.5.3.jar
+    
+> API: http://www.antlr.org/api/Java/
+
+-----------------------------------------------------------------------------------------------------------------------------
 ## Grammar
 > Grammars for standard lambda terms and De Bruijn terms are stored in `src/main/java/lambdaCalculus/project/grammar`:
-> They are written using `ANTLR 4` parser generator.
+
+> They are written using `ANTLR 4` parser generator for parsing the input terms.
+
 > I defined grammar for a term as:
     
   > A term is either:
