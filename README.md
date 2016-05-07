@@ -38,7 +38,7 @@
 
     1. Grammar folder as described above
     2. Definition folder contains the definition of standard lambda terms and de bruijn term
-    3. some classes for term conversion, term printing, and tree
+    3. Classes for term conversion, term printing, and tree
     
 > The test code is stored in `/src/test/java/lambdaCalculus/project`:
 
