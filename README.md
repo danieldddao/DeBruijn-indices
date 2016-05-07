@@ -87,9 +87,9 @@ If you have a String input where `\` is used as `λ`. E.g.:
     - **LambdaPrinter.printStandardLambdaTerm(myStandardLambda)** and **LambdaPrinter.printStandardLambdaTree(myStandardLambda)**. It will print out the standard lambda term and tree like below:
 
     <img width="297" alt="screenshot 2016-05-07 09 09 52" src="https://cloud.githubusercontent.com/assets/17075659/15092583/c8582da0-1433-11e6-814c-3c381fb19f85.png">
-    <img width="288" alt="screenshot 2016-05-07 09 10 21" src="https://cloud.githubusercontent.com/assets/17075659/15092579/c852bd66-1433-11e6-96e3-34cfaaec9605.png">
-    
     <img width="248" alt="screenshot 2016-05-07 09 09 57" src="https://cloud.githubusercontent.com/assets/17075659/15092582/c855dbc2-1433-11e6-92cc-541774480320.png">
+    
+    <img width="288" alt="screenshot 2016-05-07 09 10 21" src="https://cloud.githubusercontent.com/assets/17075659/15092579/c852bd66-1433-11e6-96e3-34cfaaec9605.png">
     <img width="232" alt="screenshot 2016-05-07 09 10 25" src="https://cloud.githubusercontent.com/assets/17075659/15092578/c849d0b6-1433-11e6-84a4-c5698ee8a886.png">
     
 
@@ -97,9 +97,9 @@ If you have a String input where `\` is used as `λ`. E.g.:
     - **LambdaPrinter.printDeBruijnTerm(myDeBruijnLambda)** and **LambdaPrinter.printDeBruijnTree(myDeBruijnLambda)**. It will print out the De Bruijn term and tree like below:
 
     <img width="227" alt="screenshot 2016-05-07 09 10 00" src="https://cloud.githubusercontent.com/assets/17075659/15092581/c853e57e-1433-11e6-9d61-8bf9e15a4325.png">
-    <img width="212" alt="screenshot 2016-05-07 09 10 30" src="https://cloud.githubusercontent.com/assets/17075659/15092577/c84182ee-1433-11e6-96e8-c71d532158b9.png">
-    
     <img width="187" alt="screenshot 2016-05-07 09 10 06" src="https://cloud.githubusercontent.com/assets/17075659/15092580/c8536568-1433-11e6-8652-bf9832615009.png">
+    
+    <img width="212" alt="screenshot 2016-05-07 09 10 30" src="https://cloud.githubusercontent.com/assets/17075659/15092577/c84182ee-1433-11e6-96e8-c71d532158b9.png">
     <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092575/c83e1a32-1433-11e6-853f-99482a285ff0.png">
 
 
