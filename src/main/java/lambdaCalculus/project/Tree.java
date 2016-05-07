@@ -8,6 +8,8 @@ import java.util.List;
  * Implementation of a Tree:
  *    Each node has one String stored in the instance variable data.
  *    The instance variables left and right are the left and right children of the node.
+ *
+ * + Credit to michal.kreuzman (http://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram) for tree printing.
  */
 public class Tree<String>
 {
@@ -22,8 +24,7 @@ public class Tree<String>
    }       
 
    /**
-   * Method to get the data from this node.
-   * @return the data from this node
+   * Method to get the data from the root of tree.
    **/
    public String getData( )
    {
@@ -31,8 +32,7 @@ public class Tree<String>
    }
 
    /**
-   * Method to get the left child of this node.
-   * @return a the left child of this node (or NULL if there is no left child)
+   * Method to get the left child of this tree.
    **/
    public Tree<String> getLeft( )
    {
@@ -40,8 +40,7 @@ public class Tree<String>
    } 
 
    /**
-    * Method to get the right child of this node.
-    * @return a the right child of this node (or NULL if there is no right child)
+    * Method to get the right child of this tree.
     **/
    public Tree<String> getRight( )
    {
@@ -49,8 +48,7 @@ public class Tree<String>
    }
 
    /**
-   * Method to set the link to the left child of this node.
-   * @param newLeft: the new left child of this node
+   * Method to set the left child of this tree.
    **/
    public void setLeft(Tree<String> newLeft)
    {                    
@@ -59,8 +57,7 @@ public class Tree<String>
     
     
    /**
-   * Method to set the link to the right child of this node.
-   * @param newRight: the new right child of this node
+   * Method to set the right child of this tree.
    **/
    public void setRight(Tree<String> newRight)
    {                    
@@ -134,12 +131,18 @@ public class Tree<String>
             return Math.max(findMaxLevel(tree.getLeft()), findMaxLevel(tree.getRight())) + 1;
     }
 
+    /**
+     * Method to print out the white space based on "ct"
+     */
     private void printWS(int ct) {
         for (int i = 0; i < ct; i++)
             System.out.print(" ");
     }
 
-    private boolean isAllTreesNull(List<Tree<String>> listTree) {
+    /**
+     * Method to check if all trees in the listTree are null
+     */
+    private boolean areAllTreesNull(List<Tree<String>> listTree) {
         for (Tree<String> tree : listTree) {
             if (tree != null)
                 return false;
@@ -148,8 +151,8 @@ public class Tree<String>
     }
 
     private void printTreeHelper(List<Tree<String>> treeList, int lvl, int maxLvl) {
-        if (treeList.isEmpty() || isAllTreesNull(treeList))
-            return;
+        if (treeList.isEmpty() || areAllTreesNull(treeList))
+            return ;
 
         int floor = maxLvl - lvl;
         int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
@@ -203,6 +206,9 @@ public class Tree<String>
         printTreeHelper(newNodes, lvl + 1, maxLvl);
     }
 
+    /**
+     * Method to print out the tree
+     **/
     public void printTree() {
         Tree<String> thisTree = new Tree<String>(getData(), getLeft(), getRight());
         printTreeHelper(Collections.singletonList(thisTree), 1, findMaxLevel(thisTree));
