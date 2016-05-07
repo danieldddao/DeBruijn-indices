@@ -36,13 +36,13 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ## Project's structure
     
-> The code is stored in `/src/main/java/lambdaCalculus/project`. Inside the folder, it contains:
+* The code is stored in `/src/main/java/lambdaCalculus/project`. Inside the folder, it contains:
 
     1. Grammar folder as described above
     2. Definition folder contains the definition of standard lambda terms and de bruijn term
     3. Classes for term conversion, term printing, and tree
     
-> The test code is stored in `/src/test/java/lambdaCalculus/project`:
+* The test code is stored in `/src/test/java/lambdaCalculus/project`:
 
     There're several test classes for testing the input terms, 
     conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda, 
