@@ -65,7 +65,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial
-If you have a String input. E.g.: 
+If you have a String input where `\` is used as `λ`. E.g.: 
 
     String myTerm = "\x.y z";
     String myTerm = "z x t";
