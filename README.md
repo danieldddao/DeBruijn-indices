@@ -38,13 +38,21 @@
 -----------------------------------------------------------------------------------------------------------------------------
 ## Classes
 
-DeBruijnLambda class and StandardLambda class
-        i. DeBruijnLambda contains the term and tree translated from the given input De Bruijn term
-        ii. StandardLambda contains the term and tree translated from the given input standard lambda term
-    3. Autosubst class contains the implementation of Autosubst's operations from the paper, "Autosubst: Reasoning with de Bruijn Terms and Parallel Substitutions by Steven Schäfer , Tobias Tebbi, and Gert Smolka"
-    4. Tree class contains the implementation of binary tree
-    5. TermConverter class contains the implementation of conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda 
-    6. LambdaPrinter contains some methods for printing out the term and the tree of DeBruijnLambda, StandardLambda, and Autosubst
+> DeBruijnLambda class and StandardLambda class
+
+        1. DeBruijnLambda contains the term and tree translated from the given input De Bruijn term
+        2. StandardLambda contains the term and tree translated from the given input standard lambda term
+    
+> Autosubst class contains the implementation of Autosubst's operations from the paper, "Autosubst: Reasoning with de Bruijn Terms and Parallel Substitutions by Steven Schäfer , Tobias Tebbi, and Gert Smolka"
+
+> Tree class contains the implementation of binary tree
+
+> TermConverter class contains the implementation of conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda 
+
+> LambdaPrinter contains some methods for printing out the term and the tree of DeBruijnLambda, StandardLambda, and Autosubst
+
+
+
 <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
 <img width="363" alt="screenshot 2016-05-07 09 11 20" src="https://cloud.githubusercontent.com/assets/17075659/15092574/c83e2df6-1433-11e6-9418-f0ecced69a3e.png">
 <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
