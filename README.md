@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------------------------------------------------------
 ## Grammar
     Grammars for standard lambda terms and De Bruijn terms are stored in `src/main/java/lambdaCalculus/project/grammar`:
-    I defined grammar for a lambda term as:
+    I defined grammar for a term as:
     
   > A term is either:
   > - variable (for standard lambda term) | number (for De Bruijn term)
@@ -22,13 +22,27 @@
 
 -----------------------------------------------------------------------------------------------------------------------------
 ## Project's structure
-    The code is stored in `/src/main/java/lambdaCalculus/project`. Inside the folder, it contains:
-      1. Grammar folder as described above
-      2. Definition folder which contains **DeBruijnLambda** class and **StandardLambda** class
+    
+> The code is stored in `/src/main/java/lambdaCalculus/project`. Inside the folder, it contains:
 
-The test code is stored in `/src/test/java/lambdaCalculus/project`
+    1. Grammar folder as described above
+    2. Definition folder contains the definition of standard lambda terms and de bruijn term
+    3. some classes for term conversion, term printing, and tree
+    
+> The test code is stored in `/src/test/java/lambdaCalculus/project`:
+
+    There're several test classes for testing the input terms, conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda, and Autosubst.
+
 -----------------------------------------------------------------------------------------------------------------------------
 ## Classes
+
+DeBruijnLambda class and StandardLambda class
+        i. DeBruijnLambda contains the term and tree translated from the given input De Bruijn term
+        ii. StandardLambda contains the term and tree translated from the given input standard lambda term
+    3. Autosubst class contains the implementation of Autosubst's operations from the paper, "Autosubst: Reasoning with de Bruijn Terms and Parallel Substitutions by Steven Schäfer , Tobias Tebbi, and Gert Smolka"
+    4. Tree class contains the implementation of binary tree
+    5. TermConverter class contains the implementation of conversion from DeBruijnLambda to StandardLambda and from StandardLambda to DeBruijnLambda 
+    6. LambdaPrinter contains some methods for printing out the term and the tree of DeBruijnLambda, StandardLambda, and Autosubst
 <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
 <img width="363" alt="screenshot 2016-05-07 09 11 20" src="https://cloud.githubusercontent.com/assets/17075659/15092574/c83e2df6-1433-11e6-9418-f0ecced69a3e.png">
 <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
