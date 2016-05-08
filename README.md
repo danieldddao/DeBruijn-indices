@@ -78,10 +78,9 @@ If you have a String input where `\` is used as `λ`. E.g.:
 
 ######2. (Optional) Printing Term and Tree:
     After 1st step, the function will return `StandardLambda`. 
-    
 * Then you can print out the term and the tree by calling `LambdaPrinter.printStandardLambdaTerm(StandardLambda standardLambda)` and `LambdaPrinter.printStandardLambdaTree(StandardLambda standardLambda)` respectively. E.g.:
 
-**LambdaPrinter.printStandardLambdaTerm(myStandardLambda)** and **LambdaPrinter.printStandardLambdaTree(myStandardLambda)**. It will print out the standard lambda term and tree like below:
+    - **LambdaPrinter.printStandardLambdaTerm(myStandardLambda)** and **LambdaPrinter.printStandardLambdaTree(myStandardLambda)**. It will print out the standard lambda term and tree like below:
 
    <img width="227" alt="screenshot 2016-05-07 09 10 00" src="https://cloud.githubusercontent.com/assets/17075659/15092583/c8582da0-1433-11e6-814c-3c381fb19f85.png">
     <img width="187" alt="screenshot 2016-05-07 09 10 06" src="https://cloud.githubusercontent.com/assets/17075659/15092582/c855dbc2-1433-11e6-92cc-541774480320.png">
