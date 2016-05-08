@@ -64,6 +64,7 @@
 > - LambdaPrinter contains some methods for printing out the term and the tree of DeBruijnLambda, StandardLambda, and Autosubst
 
 ----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial for Standard Lambda Terms:
 If you have a String input where `\` is used as `λ`. E.g.: 
 
@@ -91,8 +92,7 @@ If you have a String input where `\` is used as `λ`. E.g.:
 ######3. (Optional) Converting a term:
 
 ######4. (Optional) Autosubst:
-    Then you can use Autosubst to calculate substituation. 
-    Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
+* Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
     
 * To use Autosubst, you need to create an instance of the class Autosubst. For example:
     * **Autosubst myautosubst = new Autosubst(myStandardLambda)**
@@ -124,8 +124,7 @@ If you have a String input where `\` is used as `λ`. E.g.:
 ######3. (Optional) Converting a term:
 
 ######4. (Optional) Autosubst:
-    Then you can use Autosubst to calculate substituation. 
-    Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
+*Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
     
 * To use Autosubst, you need to create an instance of the class Autosubst. For example:
     * **Autosubst myautosubst = new Autosubst(myDeBruijnLambda)**
