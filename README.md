@@ -66,7 +66,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial for Standard Lambda Terms:
-If you have a String input where `\` is used as `λ`. E.g.: 
+> If you have a String input where `\` is used as `λ`. E.g.: 
 
     String myTerm = "\x.y z";
     String myTerm = "z x t";
@@ -78,10 +78,10 @@ If you have a String input where `\` is used as `λ`. E.g.:
     - **StandardLambda myStandardLambda = LambdaPrinter.setupLambda(myTerm)** where `myTerm` is the standard lambda term String input.
 
 ######2. (Optional) Printing Term and Tree:
-    After 1st step, the function will return `StandardLambda`. 
+> After 1st step, the function will return `StandardLambda`. 
 * Then you can print out the term and the tree by calling `LambdaPrinter.printStandardLambdaTerm(StandardLambda standardLambda)` and `LambdaPrinter.printStandardLambdaTree(StandardLambda standardLambda)` respectively. E.g.:
 
-    - **LambdaPrinter.printStandardLambdaTerm(myStandardLambda)** and **LambdaPrinter.printStandardLambdaTree(myStandardLambda)**. It will print out the standard lambda term and tree like below:
+  - **LambdaPrinter.printStandardLambdaTerm(myStandardLambda)** and **LambdaPrinter.printStandardLambdaTree(myStandardLambda)**. It will print out the standard lambda term and tree like below:
 
    <img width="227" alt="screenshot 2016-05-07 09 10 00" src="https://cloud.githubusercontent.com/assets/17075659/15092583/c8582da0-1433-11e6-814c-3c381fb19f85.png">
     <img width="187" alt="screenshot 2016-05-07 09 10 06" src="https://cloud.githubusercontent.com/assets/17075659/15092582/c855dbc2-1433-11e6-92cc-541774480320.png">
@@ -90,6 +90,17 @@ If you have a String input where `\` is used as `λ`. E.g.:
     <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092578/c849d0b6-1433-11e6-84a4-c5698ee8a886.png">
     
 ######3. (Optional) Converting a term:
+> To convert a `StandardLambda` to `DeBruijnLambda`, call the function **TermConverter.standardLambdaToDeBruijn(StandardLambda standardLambda)**, it will return a `DeBruijnLambda`. E.g.:
+    
+  - **DeBruijnLambda myDeBruijnLambda = TermConverter.standardLambdaToDeBruijn(myStandardLambda)**
+    
+  - And to print out the term and tree of **myDeBruijnLambda**, call `LambdaPrinter.printDeBruijnTerm(DeBruijnLambda deBruijnLambda)` and `LambdaPrinter.printDeBruijnTree(DeBruijnLambda deBruijnLambda)` respectively. E.g.:
+    - **LambdaPrinter.printDeBruijnTerm(myDeBruijnLambda)** and **LambdaPrinter.printDeBruijnTree(myDeBruijnLambda)**. It will print out the De Bruijn term and tree like below:
+    <img width="227" alt="screenshot 2016-05-07 09 10 00" src="https://cloud.githubusercontent.com/assets/17075659/15092581/c853e57e-1433-11e6-9d61-8bf9e15a4325.png">
+    <img width="187" alt="screenshot 2016-05-07 09 10 06" src="https://cloud.githubusercontent.com/assets/17075659/15092580/c8536568-1433-11e6-8652-bf9832615009.png">
+    
+     <img width="212" alt="screenshot 2016-05-07 09 10 30" src="https://cloud.githubusercontent.com/assets/17075659/15092577/c84182ee-1433-11e6-96e8-c71d532158b9.png">
+    <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092575/c83e1a32-1433-11e6-853f-99482a285ff0.png">
 
 ######4. (Optional) Autosubst:
 * Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
@@ -122,7 +133,9 @@ If you have a String input where `\` is used as `λ`. E.g.:
     <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092575/c83e1a32-1433-11e6-853f-99482a285ff0.png">
 
 ######3. (Optional) Converting a term:
-
+    To convert a `
+    
+    
 ######4. (Optional) Autosubst:
 *Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
     
