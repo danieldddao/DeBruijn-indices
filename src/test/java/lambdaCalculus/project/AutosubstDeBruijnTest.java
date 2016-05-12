@@ -32,9 +32,11 @@ public class AutosubstDeBruijnTest {
 
                 Autosubst autosubst = new Autosubst(deBruijnLambda);
                 LambdaPrinter.printLambdaAutosubstTerm(autosubst.getStandardLambda());
+                //LambdaPrinter.printLambdaAutosubstTree(autosubst.getStandardLambda());
                 LambdaPrinter.printStandardLambdaFullReductionSteps(autosubst);
 
                 LambdaPrinter.printDeBruijnAutosubstTerm(autosubst.getDeBruijnLambda());
+                //LambdaPrinter.printLambdaAutosubstTree(autosubst.getDeBruijnLambda());
                 LambdaPrinter.printDeBruijnFullReductionSteps(autosubst);
                 System.out.println("----------------------------------------------------------------------------------------------------------------------------");
                 System.out.println();

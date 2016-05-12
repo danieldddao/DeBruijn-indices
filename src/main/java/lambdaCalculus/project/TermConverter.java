@@ -26,7 +26,6 @@ public class TermConverter {
     private static int ct;  // for converting variable to number
 
     private static int codeASCII = 97; // ASCII code for lowercase characters ([a-z] = [97-122])
-    private static int ctASCII = 0;
 
     /**
      * Return a lowercase character from a - z.
@@ -34,18 +33,11 @@ public class TermConverter {
     private static String getVar() {
         String var = "";
         try {
-            if (codeASCII == 123) {
-                ctASCII++;
+            if (codeASCII == 123)
                 codeASCII = 97; // reset to a
-            } else if (ctASCII == 123) {
-                ctASCII = 0;
-            }
 
-            if (ctASCII == 0) {
-                var = Character.toString((char) codeASCII);
-            } else {
-                var = Character.toString((char) codeASCII) + Character.toString((char) (ctASCII + 96));
-            }
+            var = Character.toString((char) codeASCII);
+
             codeASCII++;
         } catch (Exception e) {
             e.printStackTrace();

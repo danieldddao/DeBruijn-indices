@@ -162,6 +162,7 @@ public class LambdaPrinter {
         try {
             System.out.println("Reduction steps in De Bruijn representation:");
             System.out.println(autosubst.getDeBruijnFullReduction());
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -171,6 +172,7 @@ public class LambdaPrinter {
         try {
             System.out.println("Reduction steps in Standard Lambda representation:");
             System.out.println(autosubst.getLambdaFullReduction());
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }

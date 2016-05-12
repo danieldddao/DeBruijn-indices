@@ -36,7 +36,7 @@ public class Autosubst {
      **/
     public Autosubst(StandardLambda standardLambda) {
         DeBruijnLambda converteddeBruijnLambda = TermConverter.standardLambdaToDeBruijn(standardLambda);
-        DeBruijnLambda substitutedDeBruijnLambda = calculateSubstitution(converteddeBruijnLambda);
+        DeBruijnLambda substitutedDeBruijnLambda = calculateFullBetaReduction(converteddeBruijnLambda);
 
         setDeBruijnLambda(substitutedDeBruijnLambda);
         setStandardLambda(TermConverter.deBruijnToStandardLambda(substitutedDeBruijnLambda));
@@ -46,7 +46,7 @@ public class Autosubst {
      * Autosubst for DeBruijnLambda input
      **/
     public Autosubst(DeBruijnLambda deBruijnLambda) {
-        DeBruijnLambda substitutedDeBruijnLambda = calculateSubstitution(deBruijnLambda);
+        DeBruijnLambda substitutedDeBruijnLambda = calculateFullBetaReduction(deBruijnLambda);
 
         setDeBruijnLambda(substitutedDeBruijnLambda);
         setStandardLambda(TermConverter.deBruijnToStandardLambda(substitutedDeBruijnLambda));
@@ -336,7 +336,7 @@ public class Autosubst {
      * Execute the Autosubst substitution for a given DeBruijn Tree
      * Return calculated DeBruijn Tree
      **/
-    public Tree<String> calculateSubstTree(Tree<String> deBruijnTree) {
+    public Tree<String> calculateSubstitution(Tree<String> deBruijnTree) {
         Tree<String> inputTree = deBruijnTree;
         Tree<String> resultTree = null;
         try {
@@ -348,22 +348,22 @@ public class Autosubst {
                     condition = false;
                 } else if (data.equals(lambda)) {                                      // start with "λ", lambda abstraction
                     listLambda.add(lambda);   // add lambda to list
-                    resultTree = new Tree<String>(lambda, null, calculateSubstTree(inputTree.getRight()));
+                    resultTree = new Tree<String>(lambda, null, calculateSubstitution(inputTree.getRight()));
                     condition = false;
                 } else if (data.equals(app)) {
                     if (inputTree.getRight().getData().equals(inst)) {          // Instantiation
                         if (inputTree.getLeft().getData().equals(lambda) | inputTree.getLeft().getData().equals(app) | inputTree.getLeft().getData().matches("[0-9]+")) {
                             inputTree = instantiation(inputTree);
                         } else {
-                            Tree<String> leftChild = calculateSubstTree(inputTree.getLeft());
-                            Tree<String> rightChild = calculateSubstTree(inputTree.getRight());
+                            Tree<String> leftChild = calculateSubstitution(inputTree.getLeft());
+                            Tree<String> rightChild = calculateSubstitution(inputTree.getRight());
                             inputTree = new Tree<String>(app, leftChild, rightChild);
                         }
                     } else if (inputTree.getLeft().getData().equals(lambda)) {  // Beta-reduction
                         fullReductionSteps.add(addLambdaToTree(inputTree));   // add tree to the list of steps
                         inputTree = betaReduction(inputTree);
                     } else {
-                        resultTree = new Tree<String>(app, calculateSubstTree(inputTree.getLeft()), calculateSubstTree(inputTree.getRight()));
+                        resultTree = new Tree<String>(app, calculateSubstitution(inputTree.getLeft()), calculateSubstitution(inputTree.getRight()));
                         condition = false;
                     }
                 } else if (data.equals(parens)) {                               // start with "()"
@@ -392,28 +392,34 @@ public class Autosubst {
     }
 
     /**
-     * Execute the Autosubst substitution for a given DeBruijn Lambda
+     * Calculate the full B-reduction for a given DeBruijn Lambda
      * Return calculated DeBruijn Lambda
      **/
-    public DeBruijnLambda calculateSubstitution(DeBruijnLambda inputLambda) {
+    public DeBruijnLambda calculateFullBetaReduction(DeBruijnLambda inputLambda) {
         DeBruijnLambda deBruijnLambda = new DeBruijnLambda();
         fullReductionSteps = new ArrayList<Tree<String>>();
         listLambda = new ArrayList<String>();
         try {
             Tree<String> inputTree = inputLambda.getLambdaTree();
-            Tree<String> calculatedTree = calculateSubstTree(inputTree);
+            Tree<String> calculatedTree = calculateSubstitution(inputTree);
 
             deBruijnLambda.setLambdaTree(calculatedTree);
             deBruijnLambda.setLambdaTerm(TermConverter.buildDeBruijnTerm(calculatedTree));
 
             /* Generate all B-reduction steps in de bruijn representation */
             fullReductionSteps.add(deBruijnLambda.getLambdaTree());
-            for (Tree<String> x : fullReductionSteps) {
-                deBruijnFullReduction += TermConverter.buildDeBruijnTerm(x) + "\n";
+            for (int x=0; x < fullReductionSteps.size(); x++) {
+                Tree<String> dBTree = fullReductionSteps.get(x);
+                deBruijnFullReduction += TermConverter.buildDeBruijnTerm(dBTree);
 
                 /* Generate all B-reduction steps in standard lambda representation */
-                List<Tree<String>> listTree = TermConverter.breakDeBruijnLambdaTree(x, new ArrayList<Map.Entry<String, Integer>>());
-                lambdaFullReduction += TermConverter.buildStandardLambdaTerm(TermConverter.buildStandardLambdaTree(listTree)) + "\n";
+                List<Tree<String>> listTree = TermConverter.breakDeBruijnLambdaTree(dBTree, new ArrayList<Map.Entry<String, Integer>>());
+                lambdaFullReduction += TermConverter.buildStandardLambdaTerm(TermConverter.buildStandardLambdaTree(listTree));
+
+                if (x != fullReductionSteps.size() - 1) {
+                    deBruijnFullReduction +=  " ⇝ \n";
+                    lambdaFullReduction +=  " ⇝ \n";
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
