@@ -117,16 +117,17 @@
        <img width="363" alt="screenshot 2016-05-07 09 11 20" src="https://cloud.githubusercontent.com/assets/17075659/15092574/c83e2df6-1433-11e6-9418-f0ecced69a3e.png">
     
     * To print out the result term and tree in De Bruijn representation, call **LambdaPrinter.printDeBruijnAutosubstTerm(DeBruijnLambda deBruijnLambda)** and **LambdaPrinter.printDeBruijnAutosubstTree(DeBruijnLambda deBruijnLambda)** respectively. It will print out as below:
-   <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
-   <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
+    
+        <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
+        <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
    
    * To print out full β-reduction steps, call **LambdaPrinter.printDeBruijnFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in standard lambda representation, or **LambdaPrinter.printStandardLambdaFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in De Bruijn representation. It will print out as below:
    
-    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
-    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
+        <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
+        <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
 
-    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
-    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
+        <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
+        <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial for De Bruijn Lambda Terms:
@@ -182,13 +183,13 @@ If you have a String input term where `\` is used as `λ`. E.g.:
     
     * To print out the result term and tree in De Bruijn representation, call **LambdaPrinter.printDeBruijnAutosubstTerm(DeBruijnLambda deBruijnLambda)** and **LambdaPrinter.printDeBruijnAutosubstTree(DeBruijnLambda deBruijnLambda)** respectively. It will print out as below:
    
-   <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
-   <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
+        <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
+        <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
    
    * To print out full β-reduction steps, call **LambdaPrinter.printDeBruijnFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in standard lambda representation, or **LambdaPrinter.printStandardLambdaFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in De Bruijn representation. It will print out as below:
    
-    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
-    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
+        <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
+        <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
 
-    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
-    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
+        <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
+        <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
