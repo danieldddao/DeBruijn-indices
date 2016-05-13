@@ -122,11 +122,11 @@
    
    * To print out full β-reduction steps, call **LambdaPrinter.printDeBruijnFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in standard lambda representation, or **LambdaPrinter.printStandardLambdaFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in De Bruijn representation. It will print out as below:
    
-   <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
-   <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
+    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
+    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
 
-   <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
-   <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
+    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
+    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial for De Bruijn Lambda Terms:
@@ -153,13 +153,42 @@ If you have a String input where `\` is used as `λ`. E.g.:
     <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092575/c83e1a32-1433-11e6-853f-99482a285ff0.png">
 
 ######3. (Optional) Converting a term:
-    To convert a `
+> To convert a `DeBruijnLambda` to `StandardLambda`, call the function **TermConverter.deBruijnToStandardLambda(DeBruijnLambda deBruijnLambda)**, it will return a `StandardLambda`. E.g.:
     
+  - **StandardLambda myStandardLambda = TermConverter.deBruijnToStandardLambda(myDeBruijnLambda)**
     
+  - And to print out the term and tree of **myStandardLambda**, call `LambdaPrinter.printStandardLambdaTerm(StandardLambda standardLambda)` and `LambdaPrinter.printStandardLambdaTree(StandardLambda standardLambda)` respectively. E.g.:
+    - **LambdaPrinter.printStandardLambdaTerm(myStandardLambda)** and **LambdaPrinter.printStandardLambdaTree(myStandardLambda)**. It will print out the Standard Lambda term and tree like below:
+
+    <img width="227" alt="screenshot 2016-05-07 09 10 00" src="https://cloud.githubusercontent.com/assets/17075659/15092583/c8582da0-1433-11e6-814c-3c381fb19f85.png">
+    <img width="187" alt="screenshot 2016-05-07 09 10 06" src="https://cloud.githubusercontent.com/assets/17075659/15092582/c855dbc2-1433-11e6-92cc-541774480320.png">
+    
+     <img width="212" alt="screenshot 2016-05-07 09 10 30" src="https://cloud.githubusercontent.com/assets/17075659/15092579/c852bd66-1433-11e6-96e3-34cfaaec9605.png">
+    <img width="162" alt="screenshot 2016-05-07 09 10 34" src="https://cloud.githubusercontent.com/assets/17075659/15092578/c849d0b6-1433-11e6-84a4-c5698ee8a886.png">
+
 ######4. (Optional) Autosubst:
-*Then you can use Autosubst to calculate substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`.
+* Then you can use Autosubst to calculate capture-avoiding substituation. Austosubst class supports both `StandardLambda` and `DeBruijnLambda`. Autosubst class will automatically calculate the substituation for all β-redexes and reduce the given term and tree to the normal form. 
+
+* Autosubst class also returns full β-reduction steps by calling getLambdaFullReduction() which will return full β-reduction steps in Standard Lambda representation, and getDeBruijnFullReduction() which will return full β-reduction steps in De Bruijn representation.
+    * One thing to note about full β-reduction steps in Standard Lambda representation: Those steps are converted from De Bruijn tree, so the name of variables is different in each step. Basically, the term in each step is α-equivalent to the term reduced from the step above it.
     
 * To use Autosubst, you need to create an instance of the class Autosubst. For example:
-    * **Autosubst myautosubst = new Autosubst(myDeBruijnLambda)**
+    * **Autosubst myautosubst = new Autosubst(myStandardLambda)**
+    * It will automatically calculate the substituation for all β-redexes and reduce the given term and tree to the normal form as well as return full β-reduction steps.
+    * To print out the result term and tree in standard lambda representation, call **LambdaPrinter.printLambdaAutosubstTerm(StandardLambda standardLambda)** and **printLambdaAutosubstTree(StandardLambda standardLambda)** respectively. It will print out as below:
 
----
+       <img width="451" alt="screenshot 2016-05-07 09 11 10" src="https://cloud.githubusercontent.com/assets/17075659/15092573/c83dab38-1433-11e6-8a65-7939b903d169.png">
+       <img width="363" alt="screenshot 2016-05-07 09 11 20" src="https://cloud.githubusercontent.com/assets/17075659/15092574/c83e2df6-1433-11e6-9418-f0ecced69a3e.png">
+    
+    * To print out the result term and tree in De Bruijn representation, call **LambdaPrinter.printDeBruijnAutosubstTerm(DeBruijnLambda deBruijnLambda)** and **LambdaPrinter.printDeBruijnAutosubstTree(DeBruijnLambda deBruijnLambda)** respectively. It will print out as below:
+   
+   <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15092572/c83c24f2-1433-11e6-95b9-98bdc25b1028.png">
+   <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15092576/c83ed3f0-1433-11e6-84eb-45ad07deb9dd.png">
+   
+   * To print out full β-reduction steps, call **LambdaPrinter.printDeBruijnFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in standard lambda representation, or **LambdaPrinter.printStandardLambdaFullReductionSteps(Autosubst autosubst)** to print out full β-reduction steps in De Bruijn representation. It will print out as below:
+   
+    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169420/c5c041ac-1700-11e6-8713-feeb7a78fa97.png">
+    <img width="453" alt="screenshot 2016-05-07 09 11 15" src="https://cloud.githubusercontent.com/assets/17075659/15169423/c5c15484-1700-11e6-941d-7a843c9f9e71.png">
+
+    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169424/c5c301c6-1700-11e6-8dde-0fb3dda9875e.png">
+    <img width="400" alt="screenshot 2016-05-07 09 11 25" src="https://cloud.githubusercontent.com/assets/17075659/15169426/c5d56ac8-1700-11e6-88ad-73ffc691d592.png">
