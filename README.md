@@ -66,7 +66,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial for Standard Lambda Terms:
-> If you have a String input where `\` is used as `λ`. E.g.: 
+> If you have a String input term where `\` is used as `λ`. E.g.: 
 
     String myTerm = "\x.y z";
     String myTerm = "z x t";
@@ -130,7 +130,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Tutorial for De Bruijn Lambda Terms:
-If you have a String input where `\` is used as `λ`. E.g.: 
+If you have a String input term where `\` is used as `λ`. E.g.: 
 
     String myTerm = "\.1 2";
     String myTerm = "0 1 2";
